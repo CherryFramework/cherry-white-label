@@ -108,7 +108,7 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 
 				$Cherry_Plugin_Update = new Cherry_Plugin_Update();
 				$Cherry_Plugin_Update -> init( array(
-						'version'			=> MONSTROID_WHITE_LABEL_VERSION,
+						'version'			=> CHERRY_WHITE_LABEL_VERSION,
 						'slug'				=> CHERRY_WHITE_LABEL_SLUG,
 						'repository_name'	=> CHERRY_WHITE_LABEL_SLUG
 				));
