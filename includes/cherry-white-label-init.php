@@ -61,9 +61,21 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 
         private function _custom_settings_admin_panel()
         {
+	        // Check exist and automatically create .htaccess file
+	        if (!file_exists($this->_get_home_path() . '.htaccess'))
+	        {
+		        if (!$this->_create_htaccess())
+		        {
+			        if (isset($_GET['page']) && 'cherry-white-label-settings' == $_GET['page'])
+			        {
+				        add_action( 'admin_notices', array($this, 'htaccess_notice') );
+			        }
+		        }
+	        }
+
 	        // Custom URL Admin Panel Authorization
-	        add_filter('site_url', array($this, '_replace_login_url'), 10, 2);
-	        add_action('login_init', array($this, '_custom_login_url'));
+	        add_filter( 'site_url', array($this, '_replace_login_url'), 10, 2 );
+	        add_action( 'login_init', array($this, '_custom_login_url') );
 
             $settings = $this->_get_settings();
 
@@ -135,6 +147,45 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
                 add_action( 'login_enqueue_scripts', array($this, 'custom_login_css') );
             }
         }
+
+		/**
+		 * Create automatically .htaccess file
+		 *
+		 * @return bool
+		 */
+		private function _create_htaccess()
+		{
+			$new_data  = "# BEGIN WordPress\n";
+			$new_data .= "<IfModule mod_rewrite.c>\n";
+			$new_data .= "RewriteEngine On\n";
+			$new_data .= "RewriteBase /\n";
+			$new_data .= "RewriteRule ^index\.php$ - [L]\n";
+			$new_data .= "RewriteCond %{REQUEST_FILENAME} !-f\n";
+			$new_data .= "RewriteCond %{REQUEST_FILENAME} !-d\n";
+			$new_data .= "RewriteRule . /index.php [L]\n";
+			$new_data .= "</IfModule>\n";
+			$new_data .= "# END WordPress\n";
+
+			$fn_htaccess = $this->_get_home_path() . '.htaccess';
+			if (@file_put_contents($fn_htaccess, $new_data))
+			{
+				return TRUE;
+			}
+
+			return FALSE;
+		}
+
+		/**
+		 * Message Notice "Error create automatically .htaccess"
+		 */
+		public function htaccess_notice()
+		{
+			echo "
+				<div class='update-nag'>
+					<p>The <code>.htaccess</code> file was not created automatically. Please be sure that the access rights of the directory \"" . $this->_get_home_path() . "\" are set to <b>757</b>.</p>
+					<p> You may create <code>.htaccess</code> file manualy by yourself.</p>
+				</div>";
+		}
 
 		/**
 		 * Replace login URL in Form authorization
@@ -390,78 +441,51 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 
 			if ((!file_exists($home_path . '.htaccess') && is_writable($home_path)) || is_writable($home_path . '.htaccess'))
 			{
-				if (file_exists($home_path . '.htaccess'))
+				$found = FALSE;
+				$not_exist_rules = FALSE;
+				$new_data = '';
+				$marker_data = explode("\n", implode('', file($home_path . '.htaccess')));
+
+				if (in_array('# BEGIN WordPress', $marker_data))
 				{
-					$found = FALSE;
-					$not_exist_rules = FALSE;
-					$new_data = '';
-					$marker_data = explode("\n", implode('', file($home_path . '.htaccess')));
-
-					if (in_array('# BEGIN WordPress', $marker_data))
+					if ( in_array( '<IfModule mod_rewrite.c>', $marker_data ) )
 					{
-						if ( in_array( '<IfModule mod_rewrite.c>', $marker_data ) )
+						foreach ( $marker_data as $line )
 						{
-							foreach ( $marker_data as $line )
+							if ( $line == '# BEGIN WordPress' )
 							{
-								if ( $line == '# BEGIN WordPress' )
-								{
-									$found = TRUE;
-								}
-
-								if ( $found )
-								{
-									if ( 'RewriteRule ^' . $old_ht_login . '/?$ /wp-login.php [QSA,L]' == $line
-									     || 'RewriteRule ^' . $old_ht_password_slug . '/?$ /wp-login.php?action=lostpassword [QSA,L]' == $line
-									)
-									{
-										$line = '';
-										$new_data .= $line;
-									}
-									else
-									{
-										$new_data .= $line . "\n";
-									}
-
-									if ( 'RewriteRule ^index\.php$ - [L]' == $line )
-									{
-										$new_data .= $ht_login;
-										$new_data .= $ht_forgot_password;
-									}
-								}
-
-								if ( $line == '# END WordPress' )
-								{
-									$found = FALSE;
-								}
-							}
-						}
-						else
-						{
-							$new_data .= "<IfModule mod_rewrite.c>\n";
-							$new_data .= "RewriteEngine On\n";
-							$new_data .= "RewriteBase /\n";
-							$new_data .= "RewriteRule ^index\.php$ - [L]\n";
-
-							if ($rules['custom_admin_slug'])
-							{
-								$new_data .= $ht_login;
+								$found = TRUE;
 							}
 
-							if ($rules['custom_forgot_password_slug'])
+							if ( $found )
 							{
-								$new_data .= $ht_forgot_password;
+								if ( 'RewriteRule ^' . $old_ht_login . '/?$ /wp-login.php [QSA,L]' == $line
+								     || 'RewriteRule ^' . $old_ht_password_slug . '/?$ /wp-login.php?action=lostpassword [QSA,L]' == $line
+								)
+								{
+									$line = '';
+									$new_data .= $line;
+								}
+								else
+								{
+									$new_data .= $line . "\n";
+								}
+
+								if ( 'RewriteRule ^index\.php$ - [L]' == $line )
+								{
+									$new_data .= $ht_login;
+									$new_data .= $ht_forgot_password;
+								}
 							}
 
-							$new_data .= "RewriteCond %{REQUEST_FILENAME} !-f\n";
-							$new_data .= "RewriteCond %{REQUEST_FILENAME} !-d\n";
-							$new_data .= "RewriteRule . /index.php [L]\n";
-							$new_data .= "</IfModule>\n";
-							$not_exist_rules = TRUE;
+							if ( $line == '# END WordPress' )
+							{
+								$found = FALSE;
+							}
 						}
 					}
 					else
 					{
-						$new_data .= "# BEGIN WordPress\n";
 						$new_data .= "<IfModule mod_rewrite.c>\n";
 						$new_data .= "RewriteEngine On\n";
 						$new_data .= "RewriteBase /\n";
@@ -481,27 +505,43 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 						$new_data .= "RewriteCond %{REQUEST_FILENAME} !-d\n";
 						$new_data .= "RewriteRule . /index.php [L]\n";
 						$new_data .= "</IfModule>\n";
-						$new_data .= "# END WordPress\n";
-					}
-
-					if ($not_exist_rules)
-					{
-						insert_with_markers($home_path . '.htaccess', 'WordPress', explode("\n", $new_data));
-					}
-					else
-					{
-						$fn_htaccess = $home_path . '.htaccess';
-						file_put_contents($fn_htaccess, $new_data);
+						$not_exist_rules = TRUE;
 					}
 				}
-//				else
-//				{
-//					vd('Does not exist .htaccess' );
-//				}
+				else
+				{
+					$new_data .= "# BEGIN WordPress\n";
+					$new_data .= "<IfModule mod_rewrite.c>\n";
+					$new_data .= "RewriteEngine On\n";
+					$new_data .= "RewriteBase /\n";
+					$new_data .= "RewriteRule ^index\.php$ - [L]\n";
 
-				// TODO: Нужно проверять, есть ли содержимое файла .htaccss и дописывать или редактировать правила по маркеру
-				// TODO: Если нет файла .htaccess - создать его.
-				// TODO: Если нет прав сообщить пользователю о создании вручную или дать права на создания файла на сервере
+					if ($rules['custom_admin_slug'])
+					{
+						$new_data .= $ht_login;
+					}
+
+					if ($rules['custom_forgot_password_slug'])
+					{
+						$new_data .= $ht_forgot_password;
+					}
+
+					$new_data .= "RewriteCond %{REQUEST_FILENAME} !-f\n";
+					$new_data .= "RewriteCond %{REQUEST_FILENAME} !-d\n";
+					$new_data .= "RewriteRule . /index.php [L]\n";
+					$new_data .= "</IfModule>\n";
+					$new_data .= "# END WordPress\n";
+				}
+
+				if ($not_exist_rules)
+				{
+					insert_with_markers($home_path . '.htaccess', 'WordPress', explode("\n", $new_data));
+				}
+				else
+				{
+					$fn_htaccess = $home_path . '.htaccess';
+					file_put_contents($fn_htaccess, $new_data);
+				}
 			}
 		}
 
