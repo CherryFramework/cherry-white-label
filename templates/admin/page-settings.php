@@ -22,6 +22,14 @@
 <form method="POST" action="">
 	<h2><?php echo __('Tab brand'); ?></h2>
 	<hr/>
+
+<!--  Test  -->
+	<div>
+		<?php wp_nonce_field('cherry-white-label-settings','cherry-white-label-settings-value'); ?>
+		<input type="submit" class="button button-primary" value="<?php echo __('Save Change'); ?>s">
+	</div>
+<!--  END Test  -->
+
 	<div class="form-wrapper">
 		<ul>
 			<li>
@@ -144,12 +152,6 @@
 			<li>
 				<div class="form-str">
 					<div class="form-row">
-						<lable><?php echo __('Change admin panel path:'); ?></lable>
-						<input type="text" name="path-admin-panel" <?php echo isset($data['path-admin-panel']) && !empty($data['path-admin-panel']) ? 'value="' . $data['path-admin-panel'] . '"' : '' ; ?> />
-					</div>
-				</div>
-				<div class="form-str">
-					<div class="form-row">
 						<lable><?php echo __('Add your own Welcome Panel?:'); ?></lable>
 						<input type="checkbox" name="visible-welcome-panel" <?php echo isset($data['visible-welcome-panel']) && 'on' == $data['visible-welcome-panel'] ? 'checked="checked"' : '' ; ?> />
 					</div>
@@ -184,6 +186,28 @@
 			</li>
 		</ul>
 	</div>
+
+	<h2><?php echo __('Authorization settings'); ?></h2>
+	<hr/>
+	<div class="form-wrapper">
+		<ul>
+			<li>
+				<div class="form-str">
+					<div class="form-row">
+						<lable><?php echo __('Change Admin Panel Slug:'); ?></lable>
+						<input type="text" name="admin-panel-slug" <?php echo isset($data['admin-panel-slug']) && !empty($data['admin-panel-slug']) ? 'value="' . $data['admin-panel-slug'] . '"' : '' ; ?> />
+					</div>
+				</div>
+				<div class="form-str">
+					<div class="form-row">
+						<lable><?php echo __('Change Forgot Password Slug:'); ?></lable>
+						<input type="text" name="forgot-password-slug" <?php echo isset($data['forgot-password-slug']) && !empty($data['forgot-password-slug']) ? 'value="' . $data['forgot-password-slug'] . '"' : '' ; ?> />
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+
 	<hr/>
 	<div>
 		<?php wp_nonce_field('cherry-white-label-settings','cherry-white-label-settings-value'); ?>
