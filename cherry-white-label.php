@@ -131,5 +131,6 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 
 	}
 
+
 	new CherryWhiteLabel();
 }
