@@ -72,10 +72,12 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 			        }
 		        }
 	        }
-
-	        // Custom URL Admin Panel Authorization
-	        add_filter( 'site_url', array($this, '_replace_login_url'), 10, 2 );
-	        add_action( 'login_init', array($this, '_custom_login_url') );
+	        else
+	        {
+		        // Custom URL Admin Panel Authorization
+		        add_filter( 'site_url', array($this, '_replace_login_url'), 10, 2 );
+		        add_action( 'login_init', array($this, '_custom_login_url') );
+	        }
 
             $settings = $this->_get_settings();
 
@@ -270,7 +272,7 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 			{
 				session_start();
 			}
-
+vd('test');
 			$url = $this->_get_url();
 
 			if ('/' . get_option('custom_wp_admin_slug') == $_SERVER['REQUEST_URI'] || '/' . get_option('custom_wp_admin_slug') . '/' == $_SERVER['REQUEST_URI'])

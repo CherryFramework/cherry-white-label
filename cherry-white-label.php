@@ -46,6 +46,21 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 
 			// Include necessary files
 			add_action( 'plugins_loaded', array( $this, 'includes' ), 3 );
+
+			// Deactivation plugin
+			register_deactivation_hook( __FILE__, array($this, 'deactivation') );
+		}
+
+		/**
+		 * Deactivate plugin
+		 * Clears some options
+		 */
+		public function deactivation()
+		{
+			$options = get_option('cherry-white-label-settings');
+			$options['admin-panel-slug'] = '';
+			update_option('cherry-white-label-settings', $options);
+			update_option('is_admin_slug', FALSE);
 		}
 
 		/**
