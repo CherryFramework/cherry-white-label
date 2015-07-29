@@ -36,7 +36,7 @@
 				<h3><?php echo __('Admin bar');?></h3>
 				<div class="form-str">
 					<div class="form-row">
-						<lable><?php echo __('Hide WordPress logo:'); ?></lable>
+						<lable><?php echo __('Hide Admin Bar logo:'); ?></lable>
 						<input type="checkbox" <?php echo (isset($data['visible-wp-logo']) && 'on' == $data['visible-wp-logo']) ? 'checked="checked"' : '' ; ?> name="visible-wp-logo"/>
 					</div>
 					<div class="form-row">

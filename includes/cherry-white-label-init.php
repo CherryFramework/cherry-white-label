@@ -85,6 +85,7 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 	        }
 
 	        if ( !empty($_POST)
+	             && isset($_POST['cherry-white-label-settings-value'])
 	             && wp_verify_nonce($_POST['cherry-white-label-settings-value'], 'cherry-white-label-settings')
 	             && !$error_message = $this->_validate_settings($_POST))
 	        {
@@ -252,7 +253,6 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 				$subdomain = '/' . $url_info['rewrite_base'];
 				$wp_domain = $scheme . $domain . $subdomain;
 				$wp_login_path = $wp_domain . $now_path;
-
 			}
 			else
 			{
@@ -688,7 +688,7 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
         public function hide_logo_admin_bar()
         {
             global $wp_admin_bar;
-            $wp_admin_bar->remove_menu('custom-wp-logo');
+            $wp_admin_bar->remove_menu('wp-logo');
         }
 
         /**
