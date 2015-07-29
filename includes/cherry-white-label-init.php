@@ -476,7 +476,7 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 			$subdomain = '';
 			$ht_login = '';
 			$ht_forgot_password = '';
-			$home_path = get_home_path();
+			$home_path = ABSPATH;
 			$settings = $this->_get_settings();
 
 			if (isset($_SERVER['SERVER_NAME']) && 'localhost' == $_SERVER['SERVER_NAME'])

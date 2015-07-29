@@ -60,7 +60,8 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 			$options = get_option('cherry-white-label-settings');
 			$options['admin-panel-slug'] = '';
 			update_option('cherry-white-label-settings', $options);
-			update_option('is_admin_slug', FALSE);
+			delete_option('is_admin_slug');
+			delete_option('custom_wp_admin_slug');
 		}
 
 		/**
