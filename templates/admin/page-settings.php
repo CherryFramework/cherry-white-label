@@ -1,46 +1,44 @@
-<h1><?php echo __('Cherry White Label'); ?></h1>
+<h1><?php _e('Cherry White Label'); ?></h1>
 <br/>
 
 <?php if ( isset($error_message['error_message']) && !empty($error_message['error_message']) ) : ?>
 	<div id="message" class="updated notice error is-dismissible below-h2">
-		<p><?php echo $error_message['error_message']; ?></p>
+		<p><?php _e($error_message['error_message']); ?></p>
 		<button type="button" class="notice-dismiss">
-			<span class="screen-reader-text"><?php echo __('Dismiss this notice.'); ?></span>
+			<span class="screen-reader-text"><?php _e('Dismiss this notice.'); ?></span>
 		</button>
 	</div>
 <?php endif; ?>
 
 <?php if ( isset($success_message) ): ?>
 	<div id="message" class="updated notice notice-success is-dismissible below-h2">
-		<p><?php echo $success_message; ?></p>
+		<p><?php _e($success_message); ?></p>
 		<button type="button" class="notice-dismiss">
-			<span class="screen-reader-text"><?php echo __('Dismiss this notice.'); ?></span>
+			<span class="screen-reader-text"><?php _e('Dismiss this notice.'); ?></span>
 		</button>
 	</div>
 <?php endif; ?>
 
 <form method="POST" action="">
-	<h2><?php echo __('Tab brand'); ?></h2>
+	<h2><?php _e('Tab brand'); ?></h2>
 	<hr/>
 
-<!--  Test  -->
 	<div>
 		<?php wp_nonce_field('cherry-white-label-settings','cherry-white-label-settings-value'); ?>
-		<input type="submit" class="button button-primary" value="<?php echo __('Save Change'); ?>s">
+		<input type="submit" class="button button-primary" value="<?php _e('Save Change'); ?>s">
 	</div>
-<!--  END Test  -->
 
 	<div class="form-wrapper">
 		<ul>
 			<li>
-				<h3><?php echo __('Admin bar');?></h3>
+				<h3><?php _e('Admin bar');?></h3>
 				<div class="form-str">
 					<div class="form-row">
-						<lable><?php echo __('Hide Admin Bar logo:'); ?></lable>
+						<lable><?php _e('Hide Admin Bar logo:'); ?></lable>
 						<input type="checkbox" <?php echo (isset($data['visible-wp-logo']) && 'on' == $data['visible-wp-logo']) ? 'checked="checked"' : '' ; ?> name="visible-wp-logo"/>
 					</div>
 					<div class="form-row">
-						<lable><?php echo __('Upload your Logo 16x16px:'); ?></lable>
+						<lable><?php _e('Upload your Logo 16x16px:'); ?></lable>
 						<div class="form-element">
 							<div class="form-image">
 								<?php if (isset($data['wp-logo-admin']) && !empty($data['wp-logo-admin'])){ ?>
@@ -49,60 +47,83 @@
 									<img data-src="<?php echo $no_image; ?>" src="<?php echo $image_src; ?>" height="<?php echo $height_image; ?>px" />
 								<?php } ?>
 							</div>
-							<button type="button" class="upload_image_button button button-primary" data-browse="wp-logo-admin"><?php echo __('Browse'); ?></button>
+							<button type="button" class="upload_image_button button button-primary" data-browse="wp-logo-admin"><?php _e('Browse'); ?></button>
 							<?php if (isset($data['wp-logo-admin']) && !empty($data['wp-logo-admin'])){ ?>
-								<button type="button" class="remove_image_button button button-cancel"><?php echo __('Remove'); ?></button>
+								<button type="button" class="remove_image_button button button-cancel"><?php _e('Remove'); ?></button>
 							<?php } ?>
 							<input type="hidden" name="wp-logo-admin" id="wp-logo-admin" value="<?php echo isset($data['wp-logo-admin']) && !empty($data['wp-logo-admin']) ? $data['wp-logo-admin'] : '' ; ?>" />
 						</div>
 					</div>
 				</div>
 
-				<h3>Dashboard bar</h3>
+				<h3><?php _e('Welcome Panel settings'); ?></h3>
 				<div class="form-str">
 					<div class="form-row">
-						<lable><?php echo __('Add Dashboard logo:'); ?></lable>
+						<lable><?php _e('Add Welcome Panel logo:'); ?></lable>
 						<div class="form-element">
 							<div class="form-image">
-								<?php if (isset($data['wp-logo-dashboard']) && !empty($data['wp-logo-dashboard'])){ ?>
-									<img data-src="<?php echo $no_image; ?>" src="<?php echo $data['wp-logo-dashboard']; ?>" height="<?php echo $height_image; ?>px" />
+								<?php if (isset($data['welcome-panel-logo']) && !empty($data['welcome-panel-logo'])){ ?>
+									<img data-src="<?php echo $no_image; ?>" src="<?php echo $data['welcome-panel-logo']; ?>" height="<?php echo $height_image; ?>px" />
 								<?php }else{ ?>
 									<img data-src="<?php echo $no_image; ?>" src="<?php echo $image_src; ?>" height="<?php echo $height_image; ?>px" />
 								<?php } ?>
 							</div>
-							<button type="button" class="upload_image_button button button-primary" data-browse="wp-logo-dashboard"><?php echo __('Browse'); ?></button>
-							<?php if (isset($data['wp-logo-dashboard']) && !empty($data['wp-logo-dashboard'])){ ?>
-								<button type="button" class="remove_image_button button button-cancel"><?php echo __('Remove'); ?></button>
+							<button type="button" class="upload_image_button button button-primary" data-browse="welcome-panel-logo"><?php _e('Browse'); ?></button>
+							<?php if (isset($data['welcome-panel-logo']) && !empty($data['welcome-panel-logo'])){ ?>
+								<button type="button" class="remove_image_button button button-cancel"><?php _e('Remove'); ?></button>
 							<?php } ?>
-							<input type="hidden" name="wp-logo-dashboard" id="wp-logo-dashboard" value="<?php echo isset($data['wp-logo-dashboard']) && !empty($data['wp-logo-dashboard']) ? $data['wp-logo-dashboard'] : '' ; ?>" />
+							<input type="hidden" name="welcome-panel-logo" id="welcome-panel-logo" value="<?php echo isset($data['welcome-panel-logo']) && !empty($data['welcome-panel-logo']) ? $data['welcome-panel-logo'] : '' ; ?>" />
 						</div>
 					</div>
 					<div class="form-row">
-						<lable><?php echo __('Dashboard heading:'); ?></lable>
-						<input type="text" name="dashboard-heading" <?php echo isset($data['dashboard-heading']) && !empty($data['dashboard-heading']) ? 'value="' . $data['dashboard-heading'] . '"' : '' ; ?> />
+						<lable><?php _e('Welcome Panel heading:'); ?></lable>
+						<input type="text" name="welcome-panel-heading" <?php echo isset($data['welcome-panel-heading']) && !empty($data['welcome-panel-heading']) ? 'value="' . $data['welcome-panel-heading'] . '"' : '' ; ?> />
+					</div>
+					<div class="form-row">
+						<lable><?php _e('Welcome Panel text:'); ?></lable>
+						<textarea name="welcome-panel-text"><?php echo isset($data['welcome-panel-text']) && !empty($data['welcome-panel-text']) ? $data['welcome-panel-text'] : '' ; ?></textarea>
+					</div>
+					<div class="form-str">
+						<div class="form-row">
+							<lable><?php _e('Add your own Welcome Panel?:'); ?></lable>
+							<input type="checkbox" name="visible-welcome-panel" <?php echo isset($data['visible-welcome-panel']) && 'on' == $data['visible-welcome-panel'] ? 'checked="checked"' : '' ; ?> />
+						</div>
+					</div>
+					<div id="visible-to" class="form-str">
+						<div class="form-row">
+							<lable><?php _e('Visible To:'); ?></lable>
+
+							<?php if (isset($roles) && !empty($roles)){ ?>
+								<select multiple size="5" name="visible-welcome-group[]">
+									<?php foreach($roles as $role => $role_info){ ?>
+										<option value="<?php echo $role; ?>" <?php echo (isset($role_info['selected']) && FALSE !== $role_info['selected']) ? 'selected="selected"' : '' ; ?>><?php _e($role_info['name']); ?></option>
+									<?php } ?>
+								</select>
+							<?php } ?>
+						</div>
 					</div>
 				</div>
 
-				<h3><?php echo __('Footer'); ?></h3>
+				<h3><?php _e('Footer'); ?></h3>
 				<div class="form-str">
 					<div class="form-row">
-						<lable><?php echo __('Hide Wordpress version:'); ?></lable>
+						<lable><?php _e('Hide Wordpress version:'); ?></lable>
 						<input type="checkbox" name="visible-wp-version" <?php echo isset($data['visible-wp-version']) && 'on' == $data['visible-wp-version'] ? 'checked="checked"' : '' ; ?> />
 					</div>
 					<div class="form-row">
-						<lable><?php echo __('Developer Website Name:'); ?></lable>
+						<lable><?php _e('Developer Website Name:'); ?></lable>
 						<input type="text" name="dev-website-name" <?php echo isset($data['dev-website-name']) && !empty($data['dev-website-name']) ? 'value="' . $data['dev-website-name'] . '"' : '' ; ?> />
 					</div>
 					<div class="form-row">
-						<lable><?php echo __('Developer Website URL:'); ?></lable>
+						<lable><?php _e('Developer Website URL:'); ?></lable>
 						<input type="text" name="dev-website-url" <?php echo isset($data['dev-website-url']) && !empty($data['dev-website-url']) ? 'value="' . $data['dev-website-url'] . '"' : '' ; ?> />
 					</div>
 				</div>
 
-				<h3>Login</h3>
+				<h3><?php _e('Login'); ?></h3>
 				<div class="form-str">
 					<div class="form-row">
-						<lable><?php echo __('Custom login logo:'); ?></lable>
+						<lable><?php _e('Custom login logo:'); ?></lable>
 						<div class="form-element">
 							<div class="form-image">
 								<?php if (isset($data['custom-wp-login-logo']) && !empty($data['custom-wp-login-logo'])){ ?>
@@ -111,15 +132,15 @@
 									<img data-src="<?php echo $no_image; ?>" src="<?php echo $image_src; ?>" height="<?php echo $height_image; ?>px" />
 								<?php } ?>
 							</div>
-							<button type="button" class="upload_image_button button button-primary" data-browse="custom-wp-login-logo"><?php echo __('Browse'); ?></button>
+							<button type="button" class="upload_image_button button button-primary" data-browse="custom-wp-login-logo"><?php _e('Browse'); ?></button>
 							<?php if (isset($data['custom-wp-login-logo']) && !empty($data['custom-wp-login-logo'])){ ?>
-								<button type="button" class="remove_image_button button button-cancel"><?php echo __('Remove'); ?></button>
+								<button type="button" class="remove_image_button button button-cancel"><?php _e('Remove'); ?></button>
 							<?php } ?>
 							<input type="hidden" name="custom-wp-login-logo" id="custom-wp-login-logo" value="<?php echo isset($data['custom-wp-login-logo']) && !empty($data['custom-wp-login-logo']) ? $data['custom-wp-login-logo'] : '' ; ?>" />
 						</div>
 					</div>
 					<div class="form-row">
-						<lable><?php echo __('Login page Background:'); ?></lable>
+						<lable><?php _e('Login page Background:'); ?></lable>
 						<div class="form-element">
 							<div class="form-image">
 								<?php if (isset($data['background-wp-login-page']) && !empty($data['background-wp-login-page'])){ ?>
@@ -128,15 +149,15 @@
 									<img data-src="<?php echo $no_image; ?>" src="<?php echo $image_src; ?>" height="<?php echo $height_image; ?>px" />
 								<?php } ?>
 							</div>
-							<button type="button" class="upload_image_button button button-primary" data-browse="background-wp-login-page"><?php echo __('Browse'); ?></button>
+							<button type="button" class="upload_image_button button button-primary" data-browse="background-wp-login-page"><?php _e('Browse'); ?></button>
 							<?php if (isset($data['background-wp-login-page']) && !empty($data['background-wp-login-page'])){ ?>
-								<button type="button" class="remove_image_button button button-cancel"><?php echo __('Remove'); ?></button>
+								<button type="button" class="remove_image_button button button-cancel"><?php _e('Remove'); ?></button>
 							<?php } ?>
 							<input type="hidden" name="background-wp-login-page" id="background-wp-login-page" value="<?php echo isset($data['background-wp-login-page']) && !empty($data['background-wp-login-page']) ? $data['background-wp-login-page'] : '' ; ?>" />
 						</div>
 					</div>
 					<div class="form-row">
-						<lable><?php echo __('Custom login css:'); ?></lable>
+						<lable><?php _e('Custom login css:'); ?></lable>
 						<textarea name="custom-login-css"><?php echo isset($data['custom-login-css']) && !empty($data['custom-login-css']) ? $data['custom-login-css'] : '' ; ?></textarea>
 					</div>
 				</div>
@@ -145,41 +166,20 @@
 	</div>
 
 
-	<h2><?php echo __('Dashboard settings'); ?></h2>
+	<h2><?php _e('Dashboard settings'); ?></h2>
 	<hr/>
 	<div class="form-wrapper">
 		<ul>
 			<li>
 				<div class="form-str">
 					<div class="form-row">
-						<lable><?php echo __('Add your own Welcome Panel?:'); ?></lable>
-						<input type="checkbox" name="visible-welcome-panel" <?php echo isset($data['visible-welcome-panel']) && 'on' == $data['visible-welcome-panel'] ? 'checked="checked"' : '' ; ?> />
-					</div>
-				</div>
-				<div id="visible-to" class="form-str">
-					<div class="form-row">
-						<lable><?php echo __('Visible To:'); ?></lable>
-
-						<?php if (isset($roles) && !empty($roles)){ ?>
-							<select multiple size="5" name="visible-welcome-group[]">
-								<?php foreach($roles as $role => $role_info){ ?>
-									<option value="<?php echo $role; ?>" <?php echo (isset($role_info['selected']) && FALSE !== $role_info['selected']) ? 'selected="selected"' : '' ; ?>><?php echo $role_info['name']; ?></option>
-								<?php } ?>
-							</select>
-						<?php } ?>
-
-<!--						<input type="text" name="visible-welcome-group" --><?php //echo isset($data['visible-welcome-group']) && !empty($data['visible-welcome-group']) ? 'value="' . $data['visible-welcome-group'] . '"' : '' ; ?><!-- />-->
-					</div>
-				</div>
-				<div class="form-str">
-					<div class="form-row">
-						<lable><?php echo __('Hide Help Box:'); ?></lable>
+						<lable><?php _e('Hide Help Box:'); ?></lable>
 						<input type="checkbox" name="visible-help-box" <?php echo isset($data['visible-help-box']) && 'on' == $data['visible-help-box'] ? 'checked="checked"' : '' ; ?> />
 					</div>
 				</div>
 				<div class="form-str">
 					<div class="form-row">
-						<lable><?php echo __('Hide Screen Options:'); ?></lable>
+						<lable><?php _e('Hide Screen Options:'); ?></lable>
 						<input type="checkbox" name="visible-screen-options" <?php echo isset($data['visible-screen-options']) && 'on' == $data['visible-screen-options'] ? 'checked="checked"' : '' ; ?> />
 					</div>
 				</div>
@@ -187,20 +187,20 @@
 		</ul>
 	</div>
 
-	<h2><?php echo __('Authorization settings'); ?></h2>
+	<h2><?php _e('Authorization settings'); ?></h2>
 	<hr/>
 	<div class="form-wrapper">
 		<ul>
 			<li>
 				<div class="form-str">
 					<div class="form-row">
-						<lable><?php echo __('Change Admin Panel Slug:'); ?></lable>
+						<lable><?php _e('Change Admin Panel Slug:'); ?></lable>
 						<input type="text" name="admin-panel-slug" <?php echo isset($data['admin-panel-slug']) && !empty($data['admin-panel-slug']) ? 'value="' . $data['admin-panel-slug'] . '"' : '' ; ?> />
 					</div>
 				</div>
 				<div class="form-str">
 					<div class="form-row">
-						<lable><?php echo __('Change Forgot Password Slug:'); ?></lable>
+						<lable><?php _e('Change Forgot Password Slug:'); ?></lable>
 						<input type="text" name="forgot-password-slug" <?php echo isset($data['forgot-password-slug']) && !empty($data['forgot-password-slug']) ? 'value="' . $data['forgot-password-slug'] . '"' : '' ; ?> />
 					</div>
 				</div>
@@ -211,6 +211,6 @@
 	<hr/>
 	<div>
 		<?php wp_nonce_field('cherry-white-label-settings','cherry-white-label-settings-value'); ?>
-		<input type="submit" class="button button-primary" value="<?php echo __('Save Change'); ?>s">
+		<input type="submit" class="button button-primary" value="<?php _e('Save Change'); ?>s">
 	</div>
 </form>

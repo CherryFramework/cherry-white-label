@@ -58,10 +58,43 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 		public function deactivation()
 		{
 			$options = get_option('cherry-white-label-settings');
-			$options['admin-panel-slug'] = '';
+
+			if (isset($options['admin-panel-slug']))
+			{
+				unset($options['admin-panel-slug']);
+			}
+
+			// Deletes an option that is no longer supported
+			$options = $this->_clear_old_options($options);
+
 			update_option('cherry-white-label-settings', $options);
+
 			delete_option('is_admin_slug');
 			delete_option('custom_wp_admin_slug');
+			// TODO: Удалить правило в .htaccess после деактивации плагина
+		}
+
+		/**
+		 *  Deletes an option that is no longer supported
+		 */
+		private function _clear_old_options($options)
+		{
+			if (isset($options['admin-panel-slug']))
+			{
+				unset($options['admin-panel-slug']);
+			}
+
+			if (isset($options['wp-logo-dashboard']))
+			{
+				unset( $options['wp-logo-dashboard'] );
+			}
+
+			if (isset($options['dashboard-heading']))
+			{
+				unset($options['dashboard-heading']);
+			}
+
+			return $options;
 		}
 
 		/**
@@ -129,9 +162,7 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 				));
 			}
 		}
-
 	}
-
 
 	new CherryWhiteLabel();
 }

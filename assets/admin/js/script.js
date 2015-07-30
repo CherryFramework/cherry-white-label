@@ -1,24 +1,5 @@
 jQuery(function($){
 
-    if ('undefined' !== typeof(optionsPageSettings))
-    {
-        console.log(optionsPageSettings.dashboard_heading);
-
-        if (optionsPageSettings.dashboard_heading)
-        {
-            var $dashboard =  $('#dashboard-widgets-wrap');
-
-            if (optionsPageSettings.dashboard_logo)
-            {
-                $dashboard.prev('h2').html('<img style="max-width: 30px; padding-right: 10px; vertical-align: bottom;" src="'+optionsPageSettings.dashboard_logo+'" alt"">'+optionsPageSettings.dashboard_heading);
-            }
-            else
-            {
-                $dashboard.prev('h2').text(optionsPageSettings.dashboard_heading);
-            }
-        }
-    }
-
     $('[name = "visible-welcome-panel"]').bind('click', function(){
         if ($(this).prop('checked'))
         {
