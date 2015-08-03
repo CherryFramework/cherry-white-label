@@ -688,7 +688,7 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 			$home_path = ABSPATH;
 			$settings = $this->_get_settings();
 
-			if (isset($_SERVER['SERVER_NAME']) && 'localhost' == $_SERVER['SERVER_NAME'])
+			if (isset($_SERVER['REQUEST_URI']) && !empty($_SERVER['REQUEST_URI']))
 			{
 				if (isset($_GET['page']) && !empty($_GET['page']))
 				{
@@ -698,17 +698,9 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 				{
 					$subdomain = str_replace('/wp-admin/admin.php?page=cherry-white-label-settings', '', $_SERVER['REQUEST_URI']);
 				}
-
-				update_option('custom_subdomain_admin_slug', $subdomain);
-
-//				$arr_uri = explode("/", $_SERVER['REQUEST_URI']);
-//
-//				if (isset($arr_uri[1]) && !empty($arr_uri[1]))
-//				{
-//					$subdomain = '/' . $arr_uri[1];
-////					update_option('custom_subdomain_admin_slug', $subdomain);
-//				}
 			}
+
+			update_option('custom_subdomain_admin_slug', $subdomain);
 
 			$old_ht_login = !empty($settings['admin-panel-slug']) ? $settings['admin-panel-slug'] : FALSE ;
 			$old_ht_password_slug = !empty($settings['forgot-password-slug']) ? $settings['forgot-password-slug'] : FALSE ;
