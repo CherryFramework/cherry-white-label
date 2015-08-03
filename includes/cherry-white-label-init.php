@@ -811,7 +811,15 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 
 				if ($not_exist_rules)
 				{
-					insert_with_markers($home_path . '.htaccess', 'WordPress', explode("\n", $new_data));
+					if (function_exists('insert_with_markers'))
+					{
+						insert_with_markers($home_path . '.htaccess', 'WordPress', explode("\n", $new_data));
+					}
+					else
+					{
+						$fn_htaccess = $home_path . '.htaccess';
+						file_put_contents($fn_htaccess, $new_data);
+					}
 				}
 				else
 				{
