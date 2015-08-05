@@ -1,20 +1,24 @@
 jQuery(function($){
 
+    if ('undefined' !== typeof(optionsPageSettings))
+    {
+        if (optionsPageSettings.interim_url)
+        {
+            console.log(optionsPageSettings.interim_url);
+            $('#wp-auth-check-form').data('src', optionsPageSettings.interim_url);
+        }
+    }
+
     $('[name = "visible-welcome-panel"]').bind('click', function(){
         if ($(this).prop('checked'))
         {
-            $('#visible-to').slideDown('slow');
+            $('#visible-to').show();
         }
         else
         {
-            $('#visible-to').slideUp('slow');
+            $('#visible-to').hide();
         }
     });
-
-    if (!$('[name = "visible-welcome-panel"]').prop('checked'))
-    {
-        $('#visible-to').hide();
-    }
 
     $('.upload_image_button').click(function(){
         var send_attachment_bkp = wp.media.editor.send.attachment;
