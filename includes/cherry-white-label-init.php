@@ -943,7 +943,7 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 				'cherry-white-label-settings',
 				array($this, '_plugin_settings_page'),
 				'',
-				6
+				81
 			);
 		}
 
