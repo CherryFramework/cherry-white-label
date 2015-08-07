@@ -100,6 +100,7 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 		        // Custom URL Admin Panel Authorization
 		        add_filter( 'site_url', array($this, '_replace_login_url'), 10, 2 );
 		        add_action( 'login_init', array($this, '_custom_login_url') );
+		        add_filter( 'lostpassword_url', array($this, '_custom_lostpassword_url'), 10, 2 );
 	        }
 
 	        if ( !empty($_POST)
@@ -416,19 +417,40 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 		}
 
 		/**
+		 * Replace lostpassword URL in Form authorization
+		 *
+		 * @param $url
+		 *
+		 * @return mixed
+		 */
+		public function _custom_lostpassword_url($url)
+		{
+			$wp_login_path = $this->_get_custom_login_url();
+			$custom_admin_slug = get_option('custom_wp_admin_slug');
+			$custom_wp_forgot_password_slug = get_option('custom_wp_forgot_password_slug');
+
+			if ($wp_login_path . '?action=lostpassword' == $url && get_option('is_forgot_password_slug'))
+			{
+				$url = str_replace($custom_admin_slug . '?action=lostpassword', $custom_wp_forgot_password_slug, $url);
+			}
+			return $url;
+		}
+
+		/**
 		 * Replace login URL in Form authorization
 		 *
 		 * @param $url
 		 *
 		 * @return string
 		 */
-		public function _replace_login_url($url, $test)
+		public function _replace_login_url($url)
 		{
 			$scheme = 'http://';
 			$domain = '';
 			$now_path = '/wp-login.php';
 			$url_info = $this->_get_url();
 			$custom_admin_slug = get_option('custom_wp_admin_slug');
+			$custom_wp_forgot_password_slug = get_option('custom_wp_forgot_password_slug');
 
 			if (isset($url_info['scheme']) && !empty($url_info['scheme']))
 			{
@@ -460,6 +482,10 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 			if ($wp_login_path == $url && get_option('is_admin_slug'))
 			{
 				return $wp_domain . '/' . $custom_admin_slug;
+			}
+			else if ($wp_login_path . '?action=lostpassword' == $url && get_option('is_forgot_password_slug'))
+			{
+				return $wp_domain . '/' . $custom_wp_forgot_password_slug;
 			}
 
 			return $url;
@@ -552,17 +578,6 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 						wp_redirect( home_url( '/' ), 301 );
 					}
 				}
-				else
-				{
-					if (isset($_POST['redirect_to']) && preg_match('/wp-admin/', $_POST['redirect_to']))
-					{
-						list($file, $arguments) = explode("?", $_SERVER['REQUEST_URI']);
-					}
-					else if ('action=lostpassword' == $url['query'] || 'action=postpass' == $url['query'])
-					{
-						list($file, $arguments) = explode("?", $_SERVER['REQUEST_URI']);
-					}
-				}
 			}
 		}
 
@@ -634,10 +649,14 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 
 			if (!empty($custom_wp_forgot_password_slug))
 			{
+				update_option('is_forgot_password_slug', TRUE);
+				update_option('custom_wp_forgot_password_slug', $custom_wp_forgot_password_slug);
 				$rules['custom_forgot_password_slug'] = $custom_wp_forgot_password_slug;
 			}
 			else
 			{
+				update_option('is_forgot_password_slug', FALSE);
+				delete_option('custom_wp_forgot_password_slug');
 				$rules['custom_forgot_password_slug'] = FALSE;
 			}
 
@@ -689,14 +708,6 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 			{
 				$ht_forgot_password = 'RewriteRule ^' . $rules['custom_forgot_password_slug'] . '/?$ ' . $subdomain . '/wp-login.php?action=lostpassword [QSA,L]' . "\n";
 			}
-
-//			vd(str_replace('/wp-admin/admin.php?page=cherry-white-label-settings', '', $_SERVER['REQUEST_URI']));
-
-//			vd(file_exists($home_path . '.htaccess'), false);
-//			vd(is_writable($home_path), false);
-//			vd((!file_exists($home_path . '.htaccess') && is_writable($home_path)), false);
-//			vd(is_writable($home_path . '.htaccess'), false);
-//			vd((!file_exists($home_path . '.htaccess') && is_writable($home_path)) || is_writable($home_path . '.htaccess'));
 
 			if ((!file_exists($home_path . '.htaccess') && is_writable($home_path)) || is_writable($home_path . '.htaccess'))
 			{

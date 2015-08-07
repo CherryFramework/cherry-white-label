@@ -71,6 +71,8 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 
 			delete_option('is_admin_slug');
 			delete_option('custom_wp_admin_slug');
+			delete_option('is_forgot_password_slug');
+			delete_option('custom_wp_forgot_password_slug');
 			// TODO: Удалить правило в .htaccess после деактивации плагина
 		}
 
