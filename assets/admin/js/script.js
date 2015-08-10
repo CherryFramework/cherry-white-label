@@ -2,38 +2,23 @@ jQuery(function($){
 
     if ('undefined' !== typeof(optionsPageSettings))
     {
-        console.log(optionsPageSettings.dashboard_heading);
-
-        if (optionsPageSettings.dashboard_heading)
+        if (optionsPageSettings.interim_url)
         {
-            var $dashboard =  $('#dashboard-widgets-wrap');
-
-            if (optionsPageSettings.dashboard_logo)
-            {
-                $dashboard.prev('h2').html('<img style="max-width: 30px; padding-right: 10px; vertical-align: bottom;" src="'+optionsPageSettings.dashboard_logo+'" alt"">'+optionsPageSettings.dashboard_heading);
-            }
-            else
-            {
-                $dashboard.prev('h2').text(optionsPageSettings.dashboard_heading);
-            }
+            console.log(optionsPageSettings.interim_url);
+            $('#wp-auth-check-form').data('src', optionsPageSettings.interim_url);
         }
     }
 
     $('[name = "visible-welcome-panel"]').bind('click', function(){
         if ($(this).prop('checked'))
         {
-            $('#visible-to').slideDown('slow');
+            $('#visible-to').show();
         }
         else
         {
-            $('#visible-to').slideUp('slow');
+            $('#visible-to').hide();
         }
     });
-
-    if (!$('[name = "visible-welcome-panel"]').prop('checked'))
-    {
-        $('#visible-to').hide();
-    }
 
     $('.upload_image_button').click(function(){
         var send_attachment_bkp = wp.media.editor.send.attachment;

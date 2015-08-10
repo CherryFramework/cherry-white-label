@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name: Cherry White Label
  * Plugin URI:	http://www.cherryframework.com/
@@ -47,6 +46,57 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 
 			// Include necessary files
 			add_action( 'plugins_loaded', array( $this, 'includes' ), 3 );
+
+			// Deactivation plugin
+			register_deactivation_hook( __FILE__, array($this, 'deactivation') );
+		}
+
+		/**
+		 * Deactivate plugin
+		 * Clears some options
+		 */
+		public function deactivation()
+		{
+			$options = get_option('cherry-white-label-settings');
+
+			if (isset($options['admin-panel-slug']))
+			{
+				unset($options['admin-panel-slug']);
+			}
+
+			// Deletes an option that is no longer supported
+			$options = $this->_clear_old_options($options);
+
+			update_option('cherry-white-label-settings', $options);
+
+			delete_option('is_admin_slug');
+			delete_option('custom_wp_admin_slug');
+			delete_option('is_forgot_password_slug');
+			delete_option('custom_wp_forgot_password_slug');
+			// TODO: Удалить правило в .htaccess после деактивации плагина
+		}
+
+		/**
+		 *  Deletes an option that is no longer supported
+		 */
+		private function _clear_old_options($options)
+		{
+			if (isset($options['admin-panel-slug']))
+			{
+				unset($options['admin-panel-slug']);
+			}
+
+			if (isset($options['wp-logo-dashboard']))
+			{
+				unset( $options['wp-logo-dashboard'] );
+			}
+
+			if (isset($options['dashboard-heading']))
+			{
+				unset($options['dashboard-heading']);
+			}
+
+			return $options;
 		}
 
 		/**
@@ -104,7 +154,7 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 			require_once( 'includes/cherry-white-label-init.php' );
 
 			if ( is_admin() ) {
-				require_once( CHERRY_STYLE_SWITCHER_DIR . 'admin/includes/class-cherry-update/class-cherry-plugin-update.php' );
+				require_once( CHERRY_WHITE_LABEL_DIR . 'admin/includes/class-cherry-update/class-cherry-plugin-update.php' );
 
 				$Cherry_Plugin_Update = new Cherry_Plugin_Update();
 				$Cherry_Plugin_Update -> init( array(
@@ -114,7 +164,6 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 				));
 			}
 		}
-
 	}
 
 	new CherryWhiteLabel();

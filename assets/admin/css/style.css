@@ -66,3 +66,26 @@
 .form-str {
     padding-bottom: 10px;
 }
+
+/*.white-label-form-wrapper .form-row input[type=number],*/
+/*.white-label-form-wrapper  .form-row input[type=text],*/
+/*.white-label-form-wrapper .form-row select {*/
+    /*width: 350px;*/
+/*}*/
+/*.white-label-form-wrapper .form-element-wrapper{*/
+   /*overflow:hidden;*/
+/*}*/
+/*.white-label-form-wrapper .description{*/
+    /*margin-left: 1px;*/
+    /*margin-right:1px;*/
+/*}*/
+
+.white-label-form-wrapper .form-table tr td:first-child{
+    width:200px;
+    vertical-align: top;
+}
+@media screen and (max-width: 782px){
+    .white-label-form-wrapper .form-table tr td:first-child{
+        width:100%;
+    }
+}
