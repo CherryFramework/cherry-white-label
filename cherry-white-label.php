@@ -3,7 +3,7 @@
  * Plugin Name: Cherry White Label
  * Plugin URI:	http://www.cherryframework.com/
  * Description: Cherry White Label plugin for WordPress.
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      Cherry Team
  * Author URI:  http://www.cherryframework.com/
  * Text Domain: cherry-white-label
@@ -32,7 +32,7 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '1.0.0';
+		public $version = '1.0.1';
 
 		/**
 		 * Constructor
