@@ -569,7 +569,7 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 							wp_redirect( home_url( '/' ), 301 );
 						}
 					}
-					else if ('1' == $_REQUEST['interim-login'])
+					else if ( isset( $_REQUEST['interim-login']) && '1' == $_REQUEST['interim-login'])
 					{
 						// Let user to this pages
 					}
