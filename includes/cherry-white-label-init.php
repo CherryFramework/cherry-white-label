@@ -978,7 +978,7 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 				$width_image    = 90;
 				$height_image   = 90;
 
-				$image_src      = $no_image = CHERRY_WHITE_LABEL_URI . 'images/no-image90x90.png';
+				$image_src      = $no_image = CHERRY_WHITE_LABEL_URI . 'admin/assets/images/no-image90x90.png';
 				global $wp_roles;
 				$roles = $wp_roles->roles;
 
@@ -1026,80 +1026,7 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 		private function _validate_settings($data)
 		{
 			$errors = array();
-/*
-			if (isset($data['visible-wp-logo']) && 'on' == $data['visible-wp-logo'])
-			{
-				if (!isset($data['wp-logo-admin']) || empty($data['wp-logo-admin']))
-				{
-					$errors['errors']['wp-logo-admin'] = TRUE;
-				}
-			}
 
-			if (!isset($data['wp-logo-dashboard']) || empty($data['wp-logo-dashboard']))
-			{
-				$errors['errors']['wp-logo-dashboard'] = TRUE;
-			}
-
-			if (!isset($data['dashboard-heading']) || empty($data['dashboard-heading']))
-			{
-				$errors['errors']['dashboard-heading'] = TRUE;
-			}
-
-			if (!isset($data['dashboard-heading']) || empty($data['dashboard-heading']))
-			{
-				$errors['errors']['dashboard-heading'] = TRUE;
-			}
-
-			if (!isset($data['dev-website-name']) || empty($data['dev-website-name']))
-			{
-				$errors['errors']['dev-website-name'] = TRUE;
-			}
-
-			if (!isset($data['dev-website-url']) || empty($data['dev-website-url']))
-			{
-				$errors['errors']['dev-website-url'] = TRUE;
-			}
-
-			if (!isset($data['custom-wp-login-logo']) || empty($data['custom-wp-login-logo']))
-			{
-				$errors['errors']['custom-wp-login-logo'] = TRUE;
-			}
-
-			if (!isset($data['background-wp-login-page']) || empty($data['background-wp-login-page']))
-			{
-				$errors['errors']['background-wp-login-page'] = TRUE;
-			}
-
-			if (!isset($data['custom-login-css']) || empty($data['custom-login-css']))
-			{
-				$errors['errors']['custom-login-css'] = TRUE;
-			}
-
-			if (!isset($data['path-admin-panel']) || empty($data['path-admin-panel']))
-			{
-				$errors['errors']['path-admin-panel'] = TRUE;
-			}
-
-			if (!isset($data['visible-welcome-panel']) || empty($data['visible-welcome-panel']))
-			{
-				$errors['errors']['visible-welcome-panel'] = TRUE;
-			}
-
-			if (!isset($data['visible-welcome-group']) || empty($data['visible-welcome-group']))
-			{
-				$errors['errors']['visible-welcome-group'] = TRUE;
-			}
-
-			if (!isset($data['visible-help-box']) || empty($data['visible-help-box']))
-			{
-				$errors['errors']['visible-help-box'] = TRUE;
-			}
-
-			if (!isset($data['visible-screen-options']) || empty($data['visible-screen-options']))
-			{
-				$errors['errors']['visible-screen-options'] = TRUE;
-			}
-*/
 			if (!empty($errors))
 			{
 				$errors = array_merge(
@@ -1161,55 +1088,39 @@ if ( !class_exists( 'CherryWhiteLabelInit' ) ) {
 		 * @param  string  $hook  admin page hook
 		 */
 		public function admin_assets( $hook ) {
+			if( strpos( $hook, 'cherry-white-label' ) !== false ){
 
-            // Styles
-            wp_enqueue_style(
-                'cherry-white-label-style',
-                CHERRY_WHITE_LABEL_URI . 'assets/admin/css/style.css',
-                array(),
-                CHERRY_WHITE_LABEL_VERSION
-            );
+				// Styles
+				wp_enqueue_style(
+					'cherry-white-label-style',
+					CHERRY_WHITE_LABEL_URI . 'admin/assets/css/cherry-white-label.css',
+					array(),
+					CHERRY_WHITE_LABEL_VERSION
+				);
 
-			if ( ! did_action( 'wp_enqueue_media' ) ) {
-				wp_enqueue_media();
+				if ( ! did_action( 'wp_enqueue_media' ) ) {
+					wp_enqueue_media();
+				}
+
+				// Scripts
+				wp_enqueue_script(
+					'cherry-white-label-script',
+					CHERRY_WHITE_LABEL_URI . 'admin/assets/js/min/cherry-white-label.min.js',
+					array( 'jquery' ),
+					CHERRY_WHITE_LABEL_VERSION,
+					true
+				);
+
+				$optionsPageSettings = array();
+
+				if ( get_option('is_admin_slug') )
+				{
+					$optionsPageSettings['interim_url'] = $this->_get_custom_login_url(array( 'interim-login' => 1 ));
+				}
+
+				wp_localize_script( 'cherry-white-label-script', 'optionsPageSettings', $optionsPageSettings);
 			}
-
-			// Scripts
-			wp_enqueue_script(
-				'cherry-white-label-script',
-				CHERRY_WHITE_LABEL_URI . 'assets/admin/js/script.js',
-				array( 'jquery' ),
-				CHERRY_WHITE_LABEL_VERSION
-			);
-
-			$optionsPageSettings = array();
-
-			if ( get_option('is_admin_slug') )
-			{
-				$optionsPageSettings['interim_url'] = $this->_get_custom_login_url(array( 'interim-login' => 1 ));
-			}
-
-			wp_localize_script( 'cherry-white-label-script', 'optionsPageSettings', $optionsPageSettings);
-        }
-
-//		/**
-//		 * Include frontend assets
-//		 *
-//		 * @since 1.0.0
-//		 */
-//		function public_assets() {
-//			// Scripts
-////			wp_enqueue_script(
-////				'tables-public',
-////				CHERRY_WHITE_LABEL_URI . 'assets/public/js/script.js', array( 'jquery' ), CHERRY_WHITE_LABEL_VERSION, true
-////			);
-////
-////			// Styles
-////			wp_enqueue_style(
-////				'style-cherry-tables-public',
-////				CHERRY_WHITE_LABEL_URI . 'assets/public/css/cherry-tables.css', array(), CHERRY_WHITE_LABEL_VERSION
-////			);
-//		}
+		}
 
 	}
 

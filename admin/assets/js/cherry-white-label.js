@@ -1,5 +1,5 @@
 jQuery(function($){
-
+"use strict";
     if ('undefined' !== typeof(optionsPageSettings))
     {
         if (optionsPageSettings.interim_url)
