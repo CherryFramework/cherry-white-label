@@ -1,2 +1,6 @@
-# cherry-white-label
-Cherry White Label
+#Cherry White Label
+
+###Change Log###
+
+* FIX: Plugin updater
+* UPD: Optimized CSS and JavaScript
