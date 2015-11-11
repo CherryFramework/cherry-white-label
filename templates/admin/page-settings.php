@@ -219,7 +219,7 @@
 	<h2><?php _e('Authorization settings'); ?></h2>
 	<hr/>
 	<div class="white-label-form-wrapper">
-		<h3 class="title"><?php _e( '' ); ?></h3>
+		<h3 class="title"></h3>
 		<table class="form-table">
 			<tbody>
 			<tr>

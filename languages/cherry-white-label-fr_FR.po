@@ -1,0 +1,553 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cherry-white-label\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-05 18:58+0200\n"
+"PO-Revision-Date: 2015-11-05 18:58+0200\n"
+"Last-Translator: J.L.Dokter <jldokter@gmail.com>\n"
+"Language-Team: Cherry Team <support@cherryframework.com>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_n_noop:1,2;_x:1,2c;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/cherry-white-label-init.php:270
+msgid "Get Started"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:271
+msgid "Customize Your Site"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:272
+msgid "or, <a href=\""
+msgstr ""
+
+#: includes/cherry-white-label-init.php:277
+msgid "Next Steps"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:282
+#: includes/cherry-white-label-init.php:287
+msgid "Edit your front page"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:283
+#: includes/cherry-white-label-init.php:288
+msgid "Add additional pages"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:289
+msgid "Add a blog post"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:293
+msgid "Write your first blog post"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:294
+msgid "Add an About page"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:297
+msgid "View your site"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:303
+msgid "More Actions"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:305
+msgid "Manage <a href=\""
+msgstr ""
+
+#: includes/cherry-white-label-init.php:306
+msgid "Turn comments on or off"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:307
+msgid "http://codex.wordpress.org/First_Steps_With_WordPress"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:307
+msgid "Learn more about getting started"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:973
+msgid "Saved successfully"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:1033
+msgid "Error validate data"
+msgstr ""
+
+#: templates/admin/page-settings.php:1
+msgid "White Label"
+msgstr ""
+
+#: templates/admin/page-settings.php:8 templates/admin/page-settings.php:17
+msgid "Dismiss this notice."
+msgstr ""
+
+#: templates/admin/page-settings.php:24
+msgid "Tab brand"
+msgstr ""
+
+#: templates/admin/page-settings.php:29
+msgid "Admin bar"
+msgstr ""
+
+#: templates/admin/page-settings.php:33
+msgid "Hide Admin Bar logo:"
+msgstr ""
+
+#: templates/admin/page-settings.php:39
+msgid "Upload your Logo 16x16px:"
+msgstr ""
+
+#: templates/admin/page-settings.php:49 templates/admin/page-settings.php:74
+#: templates/admin/page-settings.php:156 templates/admin/page-settings.php:175
+msgid "Browse"
+msgstr ""
+
+#: templates/admin/page-settings.php:51 templates/admin/page-settings.php:76
+#: templates/admin/page-settings.php:158 templates/admin/page-settings.php:177
+msgid "Remove"
+msgstr ""
+
+#: templates/admin/page-settings.php:60
+msgid "Welcome Panel settings"
+msgstr ""
+
+#: templates/admin/page-settings.php:64
+msgid "Add Welcome Panel logo:"
+msgstr ""
+
+#: templates/admin/page-settings.php:83
+msgid "Welcome Panel heading:"
+msgstr ""
+
+#: templates/admin/page-settings.php:89
+msgid "Welcome Panel text:"
+msgstr ""
+
+#: templates/admin/page-settings.php:95
+msgid "Add your own Welcome Panel?:"
+msgstr ""
+
+#: templates/admin/page-settings.php:101
+msgid "Visible To:"
+msgstr ""
+
+#: templates/admin/page-settings.php:115
+msgid "Footer"
+msgstr ""
+
+#: templates/admin/page-settings.php:119
+msgid "Hide Wordpress version:"
+msgstr ""
+
+#: templates/admin/page-settings.php:125
+msgid "Developer Website Name:"
+msgstr ""
+
+#: templates/admin/page-settings.php:131
+msgid "Developer Website URL:"
+msgstr ""
+
+#: templates/admin/page-settings.php:135
+msgid "Example: http://your-website.com"
+msgstr ""
+
+#: templates/admin/page-settings.php:142
+msgid "Login"
+msgstr ""
+
+#: templates/admin/page-settings.php:146
+msgid "Custom login logo:"
+msgstr ""
+
+#: templates/admin/page-settings.php:165
+msgid "Login page Background:"
+msgstr ""
+
+#: templates/admin/page-settings.php:184
+msgid "Custom login css:"
+msgstr ""
+
+#: templates/admin/page-settings.php:194
+msgid "Dashboard settings"
+msgstr ""
+
+#: templates/admin/page-settings.php:200
+msgid "Hide Help Box:"
+msgstr ""
+
+#: templates/admin/page-settings.php:204
+msgid "This setting will hide \"help box\" bar on dashboard section"
+msgstr ""
+
+#: templates/admin/page-settings.php:209
+msgid "Hide Screen Options:"
+msgstr ""
+
+#: templates/admin/page-settings.php:212
+msgid "This setting will hide \"screen option\" bar on dashboard section"
+msgstr ""
+
+#: templates/admin/page-settings.php:219
+msgid "Authorization settings"
+msgstr ""
+
+#: templates/admin/page-settings.php:226
+msgid "Change Admin Panel Slug:"
+msgstr ""
+
+#: templates/admin/page-settings.php:232
+msgid "Change Forgot Password Slug:"
+msgstr ""
+
+#: templates/admin/page-settings.php:244
+msgid "Save Change"
+msgstr ""
+
+#~ msgid "Title"
+#~ msgstr "Titre"
+
+#~ msgid "Author"
+#~ msgstr "Auteur"
+
+#~ msgid "Date"
+#~ msgstr "Date"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Vignette "
+
+#~ msgid "Testimonial Options"
+#~ msgstr "Options de Témoignages"
+
+#~ msgid "Name:"
+#~ msgstr "Nom:"
+
+#~ msgid "Enter author's name."
+#~ msgstr "Entrez le nom de l'auteur."
+
+#~ msgid "E-mail:"
+#~ msgstr "Adresse électronique:"
+
+#~ msgid "Enter an e-mail address."
+#~ msgstr "Entrez une Adresse électronique."
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Enter the URL."
+#~ msgstr "Saisir l'URL."
+
+#~ msgid "Title:"
+#~ msgstr "Titre:"
+
+#~ msgid "Limit:"
+#~ msgstr "Limite:"
+
+#~ msgid "Image Size (in pixels):"
+#~ msgstr "Taille de l'Image (en pixels):"
+
+#~ msgid "Display Author"
+#~ msgstr "Afficher l’Auteur"
+
+#~ msgid "Display Avatar"
+#~ msgstr "Afficher l'Avatar"
+
+#~ msgid "Specific ID:"
+#~ msgstr "ID spécifique:"
+
+#~ msgid "Testimonials Post IDs, separated by commas."
+#~ msgstr "IDs d'articles Témoignages, séparées par des virgules."
+
+#~ msgid "Order By:"
+#~ msgstr "Trier par:"
+
+#~ msgid "Order Direction:"
+#~ msgstr "Direction de l'Ordre"
+
+#~ msgid "Post content:"
+#~ msgstr "Contenu de l'article"
+
+#~ msgid "Content Length:"
+#~ msgstr "Longueur du Contenu:"
+
+#~ msgid "Template:"
+#~ msgstr "Modèle:"
+
+#~ msgid "Custom CSS Class:"
+#~ msgstr "Classe CSS Personalisée:"
+
+#~ msgid "Testimonials posts"
+#~ msgstr "Articles témoignages"
+
+#~ msgid ""
+#~ "You can choose if you want to display sidebars and how you want to "
+#~ "display them."
+#~ msgstr ""
+#~ "Vous pouvez choisir si vous voulez afficher des barres latérales et la "
+#~ "façon dont vous souhaitez les afficher."
+
+#~ msgid "Left sidebar"
+#~ msgstr "Barre latérale gauche"
+
+#~ msgid "Right sidebar"
+#~ msgstr "Barre latérale droite"
+
+#~ msgid "Left and right sidebar"
+#~ msgstr "Barre latérale gauche et droite"
+
+#~ msgid "Two sidebars on the left"
+#~ msgstr "Deux barres latérales sur le côté gauche"
+
+#~ msgid "Two sidebars on the right"
+#~ msgstr "Deux barres latérales sur le côté droit"
+
+#~ msgid "No sidebar"
+#~ msgstr "Sans barre latérale"
+
+#~ msgid "Testimonials"
+#~ msgstr "Témoignages"
+
+#~ msgid "Testimonial"
+#~ msgstr "Témoignage"
+
+#~ msgid "Add New"
+#~ msgstr "Ajouter "
+
+#~ msgid "Add New Testimonial"
+#~ msgstr "Ajouter un Nouveau Témoignage"
+
+#~ msgid "Edit Testimonial"
+#~ msgstr "Modifier le Témoignage"
+
+#~ msgid "New Testimonial"
+#~ msgstr "Nouveau Témoignage"
+
+#~ msgid "View Testimonial"
+#~ msgstr "Voir le Témoignage"
+
+#~ msgid "Search Testimonials"
+#~ msgstr "Recherche  des Témoignages"
+
+#~ msgid "No testimonials found"
+#~ msgstr "Aucun témoignage trouvé"
+
+#~ msgid "No testimonials found in trash"
+#~ msgstr "Aucun témoignage trouvé dans la corbeille"
+
+#~ msgid "Testimonials Categories"
+#~ msgstr "Catégories de Témoignages "
+
+#~ msgid "Edit Category"
+#~ msgstr "Modifier une Catégorie"
+
+#~ msgid "Search Categories"
+#~ msgstr "Recherche des Catégories"
+
+#~ msgid "Popular Categories"
+#~ msgstr "Catégories Populaires"
+
+#~ msgid "All Categories"
+#~ msgstr "Toutes les catégories"
+
+#~ msgid "Update Category"
+#~ msgstr "Mise à jour de Catégorie"
+
+#~ msgid "Add New Category"
+#~ msgstr "Ajouter une Nouvelle Catégorie "
+
+#~ msgid "New Category Name"
+#~ msgstr "Nom de la Nouvelle Catégorie"
+
+#~ msgid "Separate categories with commas"
+#~ msgstr "Catégories séparées par des virgules"
+
+#~ msgid "Add or remove categories"
+#~ msgstr "Ajouter ou supprimer des catégories"
+
+#~ msgid "Choose from the most used categories"
+#~ msgstr "Choisissez parmi les catégories les plus utilisées"
+
+#~ msgid "No categories found."
+#~ msgstr "Aucune catégorie trouvée."
+
+#~ msgid "Categories"
+#~ msgstr "Catégories"
+
+#~ msgid "Limit"
+#~ msgstr "Limite"
+
+#~ msgid "Maximum number of posts."
+#~ msgstr "Nombre maximal d'articles."
+
+#~ msgid "Descending"
+#~ msgstr "Descendant"
+
+#~ msgid "Ascending"
+#~ msgstr "Ascendant "
+
+#~ msgid "Order"
+#~ msgstr "Ordre"
+
+#~ msgid "Posts order"
+#~ msgstr "Ordre des articles"
+
+#~ msgid "None"
+#~ msgstr "Aucun"
+
+#~ msgid "Post ID"
+#~ msgstr "ID de l'article"
+
+#~ msgid "Post author"
+#~ msgstr "Auteur de l'article"
+
+#~ msgid "Post title"
+#~ msgstr "Titre de l'article"
+
+#~ msgid "Post slug"
+#~ msgstr "Identifiant de l'article"
+
+#~ msgid "Last modified date"
+#~ msgstr "Dernière date de modification"
+
+#~ msgid "Post parent"
+#~ msgstr "Article Parent"
+
+#~ msgid "Random"
+#~ msgstr "Aléatoire"
+
+#~ msgid "Comments number"
+#~ msgstr "Nombre de commentaires"
+
+#~ msgid "Menu order"
+#~ msgstr "Ordre du menu"
+
+#~ msgid "Meta key values"
+#~ msgstr "Meta key values"
+
+#~ msgid "Order by"
+#~ msgstr "Trier par"
+
+#~ msgid "Order posts by"
+#~ msgstr "Trier des articles par"
+
+#~ msgid "Category"
+#~ msgstr "Catégorie"
+
+#~ msgid "Select category to show testimonials from"
+#~ msgstr "Sélectionnez la catégorie des témoignages à afficher"
+
+#~ msgid "Post ID's"
+#~ msgstr "IDs d'article"
+
+#~ msgid "Enter comma separated ID's of the posts that you want to show"
+#~ msgstr "Entrez ID's d'articles à afficher séparés par des virgules "
+
+#~ msgid "Display author?"
+#~ msgstr "Afficher l’Auteur"
+
+#~ msgid "Display avatar?"
+#~ msgstr "Afficher l'avatar?"
+
+#~ msgid "Avatar size"
+#~ msgstr "Taille de l'avatar"
+
+#~ msgid "Avatar size (in pixels)"
+#~ msgstr "Taille de l'avatar (en pixels)"
+
+#~ msgid "Part of content"
+#~ msgstr "Partie du contenu"
+
+#~ msgid "Full content"
+#~ msgstr "Contenu complet"
+
+#~ msgid "Post content"
+#~ msgstr "Contenu de l'article"
+
+#~ msgid "Choose to display a part or full content"
+#~ msgstr ""
+#~ "Choisissez si vous voulez afficher une partie du contenu ou le contenu "
+#~ "complet"
+
+#~ msgid "Content Length"
+#~ msgstr "Longueur du Contenu:"
+
+#~ msgid "Insert the number of words you want to show in the post content."
+#~ msgstr ""
+#~ "Insérez le nombre de mots que vous voulez afficher dans le contenu "
+#~ "d'articles."
+
+#~ msgid "Template"
+#~ msgstr "Modèle"
+
+#~ msgid "Shortcode template"
+#~ msgstr "Modèle de shortcode"
+
+#~ msgid "Class"
+#~ msgstr "Classe"
+
+#~ msgid "Extra CSS class"
+#~ msgstr "Сlasse CSS Extra"
+
+#~ msgid "Author's name"
+#~ msgstr "Nom de l'auteur"
+
+#~ msgid "Author's avatar"
+#~ msgstr "Avatar de l'auteur"
+
+#~ msgid "Author's email"
+#~ msgstr "Email de l'auteur"
+
+#~ msgid "Author's URL"
+#~ msgstr "URL de l'auteur"
+
+#~ msgid "Content"
+#~ msgstr "Contenu"
+
+#~ msgid "Author's name (Testimonials only)"
+#~ msgstr "Nom de l'auteur (Témoignages seulement)"
+
+#~ msgid "Author's email (Testimonials only)"
+#~ msgstr "Email de l'auteur (Témoignages seulement)"
+
+#~ msgid "Author's URL (Testimonials only)"
+#~ msgstr "URL de l'auteur (Témoignages seulement)"
+
+#~ msgid "Cherry Testimonials"
+#~ msgstr "Témoignages Cherry"
+
+#~ msgid "Your site's most recent Testimonials."
+#~ msgstr "Témoignages les plus récents de votre site."
+
+#~ msgid "No Order"
+#~ msgstr "No Order"
+
+#~ msgid "Entry ID"
+#~ msgstr "ID d'entrée"
+
+#~ msgid "Date Added"
+#~ msgstr "Date Ajoutée"
+
+#~ msgid "Attributes Order"
+#~ msgstr "Attributes Order"
+
+#~ msgid "Random Order"
+#~ msgstr "Ordre Aléatoire"
+
+#~ msgid "Author's avatar (Testimonials only)"
+#~ msgstr "Avatar de l'auteur (Témoignages seulement)"

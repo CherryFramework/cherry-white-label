@@ -1,0 +1,553 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cherry-white-label\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-05 18:59+0200\n"
+"PO-Revision-Date: 2015-11-05 18:59+0200\n"
+"Last-Translator: J.L.Dokter <jldokter@gmail.com>\n"
+"Language-Team: Cherry Team <support@cherryframework.com>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_n_noop:1,2;_x:1,2c;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/cherry-white-label-init.php:270
+msgid "Get Started"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:271
+msgid "Customize Your Site"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:272
+msgid "or, <a href=\""
+msgstr ""
+
+#: includes/cherry-white-label-init.php:277
+msgid "Next Steps"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:282
+#: includes/cherry-white-label-init.php:287
+msgid "Edit your front page"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:283
+#: includes/cherry-white-label-init.php:288
+msgid "Add additional pages"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:289
+msgid "Add a blog post"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:293
+msgid "Write your first blog post"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:294
+msgid "Add an About page"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:297
+msgid "View your site"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:303
+msgid "More Actions"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:305
+msgid "Manage <a href=\""
+msgstr ""
+
+#: includes/cherry-white-label-init.php:306
+msgid "Turn comments on or off"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:307
+msgid "http://codex.wordpress.org/First_Steps_With_WordPress"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:307
+msgid "Learn more about getting started"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:973
+msgid "Saved successfully"
+msgstr ""
+
+#: includes/cherry-white-label-init.php:1033
+msgid "Error validate data"
+msgstr ""
+
+#: templates/admin/page-settings.php:1
+msgid "White Label"
+msgstr ""
+
+#: templates/admin/page-settings.php:8 templates/admin/page-settings.php:17
+msgid "Dismiss this notice."
+msgstr ""
+
+#: templates/admin/page-settings.php:24
+msgid "Tab brand"
+msgstr ""
+
+#: templates/admin/page-settings.php:29
+msgid "Admin bar"
+msgstr ""
+
+#: templates/admin/page-settings.php:33
+msgid "Hide Admin Bar logo:"
+msgstr ""
+
+#: templates/admin/page-settings.php:39
+msgid "Upload your Logo 16x16px:"
+msgstr ""
+
+#: templates/admin/page-settings.php:49 templates/admin/page-settings.php:74
+#: templates/admin/page-settings.php:156 templates/admin/page-settings.php:175
+msgid "Browse"
+msgstr ""
+
+#: templates/admin/page-settings.php:51 templates/admin/page-settings.php:76
+#: templates/admin/page-settings.php:158 templates/admin/page-settings.php:177
+msgid "Remove"
+msgstr ""
+
+#: templates/admin/page-settings.php:60
+msgid "Welcome Panel settings"
+msgstr ""
+
+#: templates/admin/page-settings.php:64
+msgid "Add Welcome Panel logo:"
+msgstr ""
+
+#: templates/admin/page-settings.php:83
+msgid "Welcome Panel heading:"
+msgstr ""
+
+#: templates/admin/page-settings.php:89
+msgid "Welcome Panel text:"
+msgstr ""
+
+#: templates/admin/page-settings.php:95
+msgid "Add your own Welcome Panel?:"
+msgstr ""
+
+#: templates/admin/page-settings.php:101
+msgid "Visible To:"
+msgstr ""
+
+#: templates/admin/page-settings.php:115
+msgid "Footer"
+msgstr ""
+
+#: templates/admin/page-settings.php:119
+msgid "Hide Wordpress version:"
+msgstr ""
+
+#: templates/admin/page-settings.php:125
+msgid "Developer Website Name:"
+msgstr ""
+
+#: templates/admin/page-settings.php:131
+msgid "Developer Website URL:"
+msgstr ""
+
+#: templates/admin/page-settings.php:135
+msgid "Example: http://your-website.com"
+msgstr ""
+
+#: templates/admin/page-settings.php:142
+msgid "Login"
+msgstr ""
+
+#: templates/admin/page-settings.php:146
+msgid "Custom login logo:"
+msgstr ""
+
+#: templates/admin/page-settings.php:165
+msgid "Login page Background:"
+msgstr ""
+
+#: templates/admin/page-settings.php:184
+msgid "Custom login css:"
+msgstr ""
+
+#: templates/admin/page-settings.php:194
+msgid "Dashboard settings"
+msgstr ""
+
+#: templates/admin/page-settings.php:200
+msgid "Hide Help Box:"
+msgstr ""
+
+#: templates/admin/page-settings.php:204
+msgid "This setting will hide \"help box\" bar on dashboard section"
+msgstr ""
+
+#: templates/admin/page-settings.php:209
+msgid "Hide Screen Options:"
+msgstr ""
+
+#: templates/admin/page-settings.php:212
+msgid "This setting will hide \"screen option\" bar on dashboard section"
+msgstr ""
+
+#: templates/admin/page-settings.php:219
+msgid "Authorization settings"
+msgstr ""
+
+#: templates/admin/page-settings.php:226
+msgid "Change Admin Panel Slug:"
+msgstr ""
+
+#: templates/admin/page-settings.php:232
+msgid "Change Forgot Password Slug:"
+msgstr ""
+
+#: templates/admin/page-settings.php:244
+msgid "Save Change"
+msgstr ""
+
+#~ msgid "Title"
+#~ msgstr "Заголовок"
+
+#~ msgid "Author"
+#~ msgstr "Автор"
+
+#~ msgid "Date"
+#~ msgstr "Дата"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Мініатюра"
+
+#~ msgid "Testimonial Options"
+#~ msgstr "Параметри відгуків"
+
+#~ msgid "Name:"
+#~ msgstr "Ім'я:"
+
+#~ msgid "Enter author's name."
+#~ msgstr "Вкажіть ім'я автора"
+
+#~ msgid "E-mail:"
+#~ msgstr "Електронна адреса:"
+
+#~ msgid "Enter an e-mail address."
+#~ msgstr "Вкажіть електронну адресу."
+
+#~ msgid "URL:"
+#~ msgstr "Посилання:"
+
+#~ msgid "Enter the URL."
+#~ msgstr "Введіть посилання."
+
+#~ msgid "Title:"
+#~ msgstr "Заголовок:"
+
+#~ msgid "Limit:"
+#~ msgstr "Обмеження:"
+
+#~ msgid "Image Size (in pixels):"
+#~ msgstr "Розміри зображення (у пікселях):"
+
+#~ msgid "Display Author"
+#~ msgstr "Відображати автора"
+
+#~ msgid "Display Avatar"
+#~ msgstr "Відображати аватар"
+
+#~ msgid "Specific ID:"
+#~ msgstr "Певні ідентифікатори (ID):"
+
+#~ msgid "Testimonials Post IDs, separated by commas."
+#~ msgstr "Ідентифікатори (IDs) публікацій відгуків, відокремлені комами."
+
+#~ msgid "Order By:"
+#~ msgstr "Упорядкувати за:"
+
+#~ msgid "Order Direction:"
+#~ msgstr "Напрям впорядкування:"
+
+#~ msgid "Post content:"
+#~ msgstr "Вміст публікації:"
+
+#~ msgid "Content Length:"
+#~ msgstr "Довжина вмісту:"
+
+#~ msgid "Template:"
+#~ msgstr "Шаблон:"
+
+#~ msgid "Custom CSS Class:"
+#~ msgstr "Користувацький клас CSS:"
+
+#~ msgid "Testimonials posts"
+#~ msgstr "Публікації відгуків"
+
+#~ msgid ""
+#~ "You can choose if you want to display sidebars and how you want to "
+#~ "display them."
+#~ msgstr ""
+#~ "Тут можна вибрати, чи відображати бічні панелі і яким саме чином це "
+#~ "робити."
+
+#~ msgid "Left sidebar"
+#~ msgstr "Ліва бічна панель"
+
+#~ msgid "Right sidebar"
+#~ msgstr "Права бічна панель"
+
+#~ msgid "Left and right sidebar"
+#~ msgstr "Ліва та права бічні панелі"
+
+#~ msgid "Two sidebars on the left"
+#~ msgstr "Дві бічні панелі зліва"
+
+#~ msgid "Two sidebars on the right"
+#~ msgstr "Дві бічні панелі справа"
+
+#~ msgid "No sidebar"
+#~ msgstr "Жодної бічної панелі"
+
+#~ msgid "Testimonials"
+#~ msgstr "Відгуки"
+
+#~ msgid "Testimonial"
+#~ msgstr "Відгук"
+
+#~ msgid "Add New"
+#~ msgstr "Створити"
+
+#~ msgid "Add New Testimonial"
+#~ msgstr "Створити новий відгук"
+
+#~ msgid "Edit Testimonial"
+#~ msgstr "Редагувати відгук"
+
+#~ msgid "New Testimonial"
+#~ msgstr "Новий відгук"
+
+#~ msgid "View Testimonial"
+#~ msgstr "Переглянути відгук"
+
+#~ msgid "Search Testimonials"
+#~ msgstr "Шукати відгуки"
+
+#~ msgid "No testimonials found"
+#~ msgstr "Відгуків немає."
+
+#~ msgid "No testimonials found in trash"
+#~ msgstr "В кошику відгуків немає."
+
+#~ msgid "Testimonials Categories"
+#~ msgstr "Категорії відгуків"
+
+#~ msgid "Edit Category"
+#~ msgstr "Редагувати категорію"
+
+#~ msgid "Search Categories"
+#~ msgstr "Шукати категорії"
+
+#~ msgid "Popular Categories"
+#~ msgstr "Популярні категорії"
+
+#~ msgid "All Categories"
+#~ msgstr "Всі категорії"
+
+#~ msgid "Update Category"
+#~ msgstr "Оновити категорію"
+
+#~ msgid "Add New Category"
+#~ msgstr "Створити нову категорію"
+
+#~ msgid "New Category Name"
+#~ msgstr "Назва нової категорії"
+
+#~ msgid "Separate categories with commas"
+#~ msgstr "Відокремлюйте категорії комами"
+
+#~ msgid "Add or remove categories"
+#~ msgstr "Створити чи видалити категорії"
+
+#~ msgid "Choose from the most used categories"
+#~ msgstr "Обрати з найчастіше вживаних категорій"
+
+#~ msgid "No categories found."
+#~ msgstr "Категорій немає"
+
+#~ msgid "Categories"
+#~ msgstr "Категорії"
+
+#~ msgid "Limit"
+#~ msgstr "Обмеження"
+
+#~ msgid "Maximum number of posts."
+#~ msgstr "Найбільша дозволена кількість публікацій."
+
+#~ msgid "Descending"
+#~ msgstr "Спадний"
+
+#~ msgid "Ascending"
+#~ msgstr "Висхідний"
+
+#~ msgid "Order"
+#~ msgstr "Порядок"
+
+#~ msgid "Posts order"
+#~ msgstr "Порядок публікацій"
+
+#~ msgid "None"
+#~ msgstr "Жодного"
+
+#~ msgid "Post ID"
+#~ msgstr "ID публікації"
+
+#~ msgid "Post author"
+#~ msgstr "Автор публікації"
+
+#~ msgid "Post title"
+#~ msgstr "Заголовок публікації"
+
+#~ msgid "Post slug"
+#~ msgstr "Скорочення (slug) публікації"
+
+#~ msgid "Last modified date"
+#~ msgstr "Дата внесення останніх змін"
+
+#~ msgid "Post parent"
+#~ msgstr "Батьківська публікація"
+
+#~ msgid "Random"
+#~ msgstr "Випадковий"
+
+#~ msgid "Comments number"
+#~ msgstr "Кількість коментарів"
+
+#~ msgid "Menu order"
+#~ msgstr "Порядок меню"
+
+#~ msgid "Meta key values"
+#~ msgstr "Метадані"
+
+#~ msgid "Order by"
+#~ msgstr "Упорядкувати за"
+
+#~ msgid "Order posts by"
+#~ msgstr "Упорядкувати публікації за"
+
+#~ msgid "Category"
+#~ msgstr "Категорія"
+
+#~ msgid "Select category to show testimonials from"
+#~ msgstr "Оберіть категорії публікацій відгуків, що будуть відображатись"
+
+#~ msgid "Post ID's"
+#~ msgstr "ID публікацій"
+
+#~ msgid "Enter comma separated ID's of the posts that you want to show"
+#~ msgstr ""
+#~ "Введіть ID публікацій, що будуть відображатися, відділяючи їх комами"
+
+#~ msgid "Display author?"
+#~ msgstr "Відображати автора"
+
+#~ msgid "Display avatar?"
+#~ msgstr "Відображати аватар"
+
+#~ msgid "Avatar size"
+#~ msgstr "Розмір аватару"
+
+#~ msgid "Avatar size (in pixels)"
+#~ msgstr "Розміри аватару (у пікселях):"
+
+#~ msgid "Part of content"
+#~ msgstr "Частина вмісту"
+
+#~ msgid "Full content"
+#~ msgstr "Увесь вміст"
+
+#~ msgid "Post content"
+#~ msgstr "Вміст публікації"
+
+#~ msgid "Choose to display a part or full content"
+#~ msgstr ""
+#~ "Виберіть, скільки вмісту публікації відображати - частково чи повністю."
+
+#~ msgid "Content Length"
+#~ msgstr "Довжина вмісту"
+
+#~ msgid "Insert the number of words you want to show in the post content."
+#~ msgstr ""
+#~ "Введіть максимальну кількість слів для вмісту публікації, що "
+#~ "відображатиметься."
+
+#~ msgid "Template"
+#~ msgstr "Шаблон"
+
+#~ msgid "Shortcode template"
+#~ msgstr "Шаблон шорткоду"
+
+#~ msgid "Class"
+#~ msgstr "Клас"
+
+#~ msgid "Extra CSS class"
+#~ msgstr "Користувацький клас CSS"
+
+#~ msgid "Author's name"
+#~ msgstr "Ім'я автора"
+
+#~ msgid "Author's avatar"
+#~ msgstr "Аватар автора"
+
+#~ msgid "Author's email"
+#~ msgstr "Електронна адреса автора"
+
+#~ msgid "Author's URL"
+#~ msgstr "Посилання автора"
+
+#~ msgid "Content"
+#~ msgstr "Вміст"
+
+#~ msgid "Author's name (Testimonials only)"
+#~ msgstr "Ім'я автора (лише для Відгуків)"
+
+#~ msgid "Author's email (Testimonials only)"
+#~ msgstr "Електронна адреса автора (лише для Відгуків)"
+
+#~ msgid "Author's URL (Testimonials only)"
+#~ msgstr "Посилання автора (лише для Відгуків)"
+
+#~ msgid "Cherry Testimonials"
+#~ msgstr "Відгуки Cherry"
+
+#~ msgid "Your site's most recent Testimonials."
+#~ msgstr "Найновіші відгуки на вашому сайті."
+
+#~ msgid "No Order"
+#~ msgstr "Порядку немає"
+
+#~ msgid "Entry ID"
+#~ msgstr "ID запису"
+
+#~ msgid "Date Added"
+#~ msgstr "Дата створення"
+
+#~ msgid "Attributes Order"
+#~ msgstr "Порядок атрибутів"
+
+#~ msgid "Random Order"
+#~ msgstr "Випадковий порядок"
+
+#~ msgid "Author's avatar (Testimonials only)"
+#~ msgstr "Аватар автора (лише для Відгуків)"
