@@ -1,66 +1,68 @@
-jQuery(function($){
-"use strict";
-    if ('undefined' !== typeof(optionsPageSettings))
-    {
-        if (optionsPageSettings.interim_url)
-        {
-            console.log(optionsPageSettings.interim_url);
-            $('#wp-auth-check-form').data('src', optionsPageSettings.interim_url);
-        }
-    }
+jQuery( function($) {
 
-    $('[name = "visible-welcome-panel"]').bind('click', function(){
-        if ($(this).prop('checked'))
-        {
-            $('#visible-to').show();
-        }
-        else
-        {
-            $('#visible-to').hide();
-        }
-    });
+	"use strict";
 
-    $('.upload_image_button').click(function(){
-        var send_attachment_bkp = wp.media.editor.send.attachment;
-        var button = $(this);
-        var dataBrowse = $(this).data('browse');
+	if ( 'undefined' !== typeof( optionsPageSettings ) ) {
+		if ( optionsPageSettings.interim_url ) {
+			$( '#wp-auth-check-form' ).data( 'src', optionsPageSettings.interim_url );
+		}
+	}
 
-        if ($(button).next().hasClass('remove_image_button'))
-        {
-            $(button).next().remove();
-        }
+	$( '[name = "visible-welcome-panel"]' ).bind( 'click', function() {
+		if ( $( this ).prop( 'checked' ) ) {
+			$( '#visible-to' ).show();
+		} else {
+			$( '#visible-to' ).hide();
+		}
+	} );
 
-        wp.media.editor.send.attachment = function(props, attachment) {
-            $(button).prev().children('img').attr('src', attachment.url);
-            $('<button type="button" class="remove_image_button button button-cancel">Remove</button>').insertAfter(button);
-            $('[name = '+dataBrowse+']').val(attachment.url);
+	$( '.upload_image_button' ).click( function() {
+		var send_attachment_bkp = wp.media.editor.send.attachment,
+			button = $( this ),
+			dataBrowse = $( this ).data( 'browse' );
 
-            wp.media.editor.send.attachment = send_attachment_bkp;
+		if ( $( button ).next().hasClass( 'remove_image_button' ) ) {
+			$( button ).next().remove();
+		}
 
-            $('.remove_image_button').click(function(){
-                var r = confirm("You are sure?");
-                if (r == true) {
-                    var src = $(this).prev().prev().children('img').attr('data-src');
-                    $(this).prev().prev().children('img').attr('src', src);
-                    $(this).next().val('');
-                    $(this).remove();
-                }
-                return false;
-            });
-        }
-        wp.media.editor.open(button);
-        return false;
-    });
+		wp.media.editor.send.attachment = function( props, attachment ) {
+			$( button ).prev().children( 'img' ).attr( 'src', attachment.url );
+			$( '<button type="button" class="remove_image_button button button-cancel">Remove</button>' ).insertAfter( button );
+			$( '[name = ' + dataBrowse + ']' ).val( attachment.url );
 
-    $('.remove_image_button').click(function(){
-        var r = confirm("You are sure?");
-        if (r == true) {
-            var src = $(this).prev().prev().children('img').attr('data-src');
-            $(this).prev().prev().children('img').attr('src', src);
-            $(this).next().val('');
-            $(this).remove();
-        }
-        return false;
-    });
+			wp.media.editor.send.attachment = send_attachment_bkp;
 
-});
+			$( '.remove_image_button' ).click( function() {
+				var r = confirm( "You are sure?" );
+
+				if ( r == true ) {
+					var src = $( this ).prev().prev().children( 'img' ).attr( 'data-src' );
+
+					$( this ).prev().prev().children( 'img' ).attr( 'src', src );
+					$( this ).next().val( '' );
+					$( this ).remove();
+				}
+
+				return false;
+			} );
+		}
+		wp.media.editor.open( button );
+
+		return false;
+	});
+
+	$( '.remove_image_button' ).click( function() {
+		var r = confirm( "You are sure?" );
+
+		if ( r == true ) {
+			var src = $( this ).prev().prev().children( 'img' ).attr( 'data-src' );
+
+			$( this ).prev().prev().children( 'img' ).attr( 'src', src );
+			$( this ).next().val( '' );
+			$( this ).remove();
+		}
+
+		return false;
+	} );
+
+} );
