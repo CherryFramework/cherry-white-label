@@ -550,7 +550,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 			$url['domain'] = $_SERVER['HTTP_HOST'];
 			$url['port'] = isset( $_SERVER['SERVER_PORT'] ) && $_SERVER['SERVER_PORT'] ? $_SERVER['SERVER_PORT'] : '' ;
 			$url['rewrite_base'] = ( $host = explode( $url['scheme'] . '://' . $_SERVER['HTTP_HOST'], get_bloginfo( 'url' ) ) ) ? preg_replace( '/^\//', '', implode( '', $host ) ) : '';
-			$url['path'] = $url['rewrite_base'] ? implode( '', explode( '/' . $url['rewrite_base'], $_SERVER["SCRIPT_NAME"] ) ) : $_SERVER['SCRIPT_NAME'];
+			$url['path'] = $url['rewrite_base'] ? implode( '', explode( '/' . $url['rewrite_base'], $_SERVER['SCRIPT_NAME'] ) ) : $_SERVER['SCRIPT_NAME'];
 			$url['query'] = $_SERVER['QUERY_STRING'];
 			return $url;
 		}
