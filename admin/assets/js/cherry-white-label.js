@@ -1,6 +1,6 @@
 jQuery( function($) {
 
-	"use strict";
+	'use strict';
 
 	if ( 'undefined' !== typeof( optionsPageSettings ) ) {
 		if ( optionsPageSettings.interim_url ) {
@@ -17,7 +17,7 @@ jQuery( function($) {
 	} );
 
 	$( '.upload_image_button' ).click( function() {
-		var send_attachment_bkp = wp.media.editor.send.attachment,
+		var sendAttachmentBkp = wp.media.editor.send.attachment,
 			button = $( this ),
 			dataBrowse = $( this ).data( 'browse' );
 
@@ -30,13 +30,14 @@ jQuery( function($) {
 			$( '<button type="button" class="remove_image_button button button-cancel">Remove</button>' ).insertAfter( button );
 			$( '[name = ' + dataBrowse + ']' ).val( attachment.url );
 
-			wp.media.editor.send.attachment = send_attachment_bkp;
+			wp.media.editor.send.attachment = sendAttachmentBkp;
 
 			$( '.remove_image_button' ).click( function() {
-				var r = confirm( "You are sure?" );
+				var r = confirm( 'You are sure?' ),
+					src;
 
-				if ( r == true ) {
-					var src = $( this ).prev().prev().children( 'img' ).attr( 'data-src' );
+				if ( true == r ) {
+					src = $( this ).prev().prev().children( 'img' ).attr( 'data-src' );
 
 					$( this ).prev().prev().children( 'img' ).attr( 'src', src );
 					$( this ).next().val( '' );
@@ -45,7 +46,7 @@ jQuery( function($) {
 
 				return false;
 			} );
-		}
+		};
 		wp.media.editor.open( button );
 
 		return false;

@@ -114,7 +114,7 @@
 				<td>
 					<?php if ( isset( $roles ) && ! empty( $roles ) ) { ?>
 						<select multiple size="5" name="visible-welcome-group[]">
-							<?php foreach ( $roles as $role=>$role_info ) { ?>
+							<?php foreach ( $roles as $role => $role_info ) { ?>
 								<option value="<?php echo $role; ?>" <?php echo ( isset( $role_info['selected'] ) && false !== $role_info['selected'] ) ? 'selected="selected"' : '' ; ?>><?php _e( $role_info['name'] ); ?></option>
 							<?php } ?>
 						</select>

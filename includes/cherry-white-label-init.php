@@ -82,7 +82,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'admin_assets' ) );
 
 				// Menu plugin.
-				add_action( 'admin_menu', array( $this, 'register_menu_plugin') );
+				add_action( 'admin_menu', array( $this, 'register_menu_plugin' ) );
 
 				// Hide admin bar options.
 				add_action( 'wp_before_admin_bar_render', array( $this, 'hide_options_admin_bar' ) );
@@ -111,7 +111,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 				add_filter( 'lostpassword_url', array( $this, '_custom_lostpassword_url' ), 10, 2 );
 			}
 
-			if ( ! empty($_POST) && isset( $_POST['cherry-white-label-settings-value'] ) && wp_verify_nonce( $_POST['cherry-white-label-settings-value'], 'cherry-white-label-settings' ) && ! $error_message = $this->_validate_settings( $_POST ) ) {
+			if ( ! empty( $_POST ) && isset( $_POST['cherry-white-label-settings-value'] ) && wp_verify_nonce( $_POST['cherry-white-label-settings-value'], 'cherry-white-label-settings' ) && ! $error_message = $this->_validate_settings( $_POST ) ) {
 				$this->_save_settings();
 			}
 
@@ -150,7 +150,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 
 			// Hide version Wordpress.
 			if ( isset( $settings['visible-wp-version'] ) && 'on' == $settings['visible-wp-version'] ) {
-				add_action( 'admin_menu', array( $this, 'hide_footer_wp_version') );
+				add_action( 'admin_menu', array( $this, 'hide_footer_wp_version' ) );
 			}
 
 			// Developer link.
@@ -550,7 +550,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 			$url['domain'] = $_SERVER['HTTP_HOST'];
 			$url['port'] = isset( $_SERVER['SERVER_PORT'] ) && $_SERVER['SERVER_PORT'] ? $_SERVER['SERVER_PORT'] : '' ;
 			$url['rewrite_base'] = ( $host = explode( $url['scheme'] . '://' . $_SERVER['HTTP_HOST'], get_bloginfo( 'url' ) ) ) ? preg_replace( '/^\//', '', implode( '', $host ) ) : '';
-			$url['path'] = $url['rewrite_base'] ? implode( '', explode('/' . $url['rewrite_base'], $_SERVER["SCRIPT_NAME"] ) ) : $_SERVER["SCRIPT_NAME"];
+			$url['path'] = $url['rewrite_base'] ? implode( '', explode( '/' . $url['rewrite_base'], $_SERVER["SCRIPT_NAME"] ) ) : $_SERVER['SCRIPT_NAME'];
 			$url['query'] = $_SERVER['QUERY_STRING'];
 			return $url;
 		}
@@ -596,7 +596,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		/**
 		 * Overwrites the data file .htaccess.
 		 *
-		 * @param array $rules
+		 * @param array $rules Rules array.
 		 */
 		private function _overwrites_htaccess( $rules ) {
 			$subdomain = '';
@@ -609,7 +609,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 				if ( isset( $_GET['page'] ) && ! empty( $_GET['page'] ) ) {
 					$subdomain = str_replace( '/wp-admin/admin.php?page=' . $_GET['page'], '', $_SERVER['REQUEST_URI'] );
 				} else {
-					$subdomain = str_replace('/wp-admin/admin.php?page=cherry-white-label-settings', '', $_SERVER['REQUEST_URI']);
+					$subdomain = str_replace( '/wp-admin/admin.php?page=cherry-white-label-settings', '', $_SERVER['REQUEST_URI'] );
 				}
 			}
 
@@ -661,10 +661,10 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 							}
 						}
 					} else {
-						$new_data .= "<IfModule mod_rewrite.c>\n";
-						$new_data .= "RewriteEngine On\n";
-						$new_data .= "RewriteBase " . $subdomain . "/\n";
-						$new_data .= "RewriteRule ^index\.php$ - [L]\n";
+						$new_data .= '<IfModule mod_rewrite.c>\n';
+						$new_data .= 'RewriteEngine On\n';
+						$new_data .= 'RewriteBase ' . $subdomain . '/\n';
+						$new_data .= 'RewriteRule ^index\.php$ - [L]\n';
 
 						if ( $rules['custom_admin_slug'] ) {
 							$new_data .= $ht_login;
@@ -674,18 +674,18 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 							$new_data .= $ht_forgot_password;
 						}
 
-						$new_data .= "RewriteCond %{REQUEST_FILENAME} !-f\n";
-						$new_data .= "RewriteCond %{REQUEST_FILENAME} !-d\n";
+						$new_data .= 'RewriteCond %{REQUEST_FILENAME} !-f\n';
+						$new_data .= 'RewriteCond %{REQUEST_FILENAME} !-d\n';
 						$new_data .= 'RewriteRule . ' . $subdomain . '/index.php [L]\n';
 						$new_data .= '</IfModule>\n';
 						$not_exist_rules = true;
 					}
 				} else {
-					$new_data .= "# BEGIN WordPress\n";
-					$new_data .= "<IfModule mod_rewrite.c>\n";
-					$new_data .= "RewriteEngine On\n";
-					$new_data .= "RewriteBase " . $subdomain . "/\n";
-					$new_data .= "RewriteRule ^index\.php$ - [L]\n";
+					$new_data .= '# BEGIN WordPress\n';
+					$new_data .= '<IfModule mod_rewrite.c>\n';
+					$new_data .= 'RewriteEngine On\n';
+					$new_data .= 'RewriteBase ' . $subdomain . '/\n';
+					$new_data .= 'RewriteRule ^index\.php$ - [L]\n';
 
 					if ( $rules['custom_admin_slug'] ) {
 						$new_data .= $ht_login;
@@ -758,7 +758,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		/**
 		 * Custom admin bar Logo Bottom.
 		 *
-		 * @param object $wp_admin_bar
+		 * @param object $wp_admin_bar Admin bar object.
 		 */
 		public function custom_logo_admin_bar_bottom( $wp_admin_bar ) {
 			$wp_admin_bar->add_menu( array(
@@ -877,11 +877,8 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 								if ( $role == $visible_role ) {
 									$roles[ $role ] = array_merge( $roles[ $role ], array( 'selected' => true ) );
 								}
-
 							}
-
 						}
-
 					}
 				}
 
@@ -901,7 +898,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		/**
 		 * Validate form settings.
 		 *
-		 * @param array $data
+		 * @param array $data Validation value.
 		 *
 		 * @return array|bool
 		 */
@@ -996,7 +993,6 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 			}
 
 		}
-
 	}
 
 	new CherryWhiteLabelInit();
