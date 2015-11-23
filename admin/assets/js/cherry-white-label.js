@@ -1,5 +1,5 @@
 jQuery( function( $ ) {
-		console.log(123);
+
 	'use strict';
 
 	if ( 'undefined' !== typeof( window.optionsPageSettings ) ) {
