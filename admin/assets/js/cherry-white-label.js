@@ -1,10 +1,10 @@
 jQuery( function( $ ) {
-
+		console.log(123);
 	'use strict';
 
-	if ( 'undefined' !== typeof( optionsPageSettings ) ) {
-		if ( optionsPageSettings.interim_url ) {
-			$( '#wp-auth-check-form' ).data( 'src', optionsPageSettings.interim_url );
+	if ( 'undefined' !== typeof( window.optionsPageSettings ) ) {
+		if ( window.optionsPageSettings.interim_url ) {
+			$( '#wp-auth-check-form' ).data( 'src', window.optionsPageSettings.interim_url );
 		}
 	}
 
@@ -33,10 +33,10 @@ jQuery( function( $ ) {
 			wp.media.editor.send.attachment = sendAttachmentBkp;
 
 			$( '.remove_image_button' ).click( function() {
-				var r = confirm( 'You are sure?' ),
+				var r = window.confirm( 'You are sure?' ),
 					src;
 
-				if ( true == r ) {
+				if ( true === r ) {
 					src = $( this ).prev().prev().children( 'img' ).attr( 'data-src' );
 
 					$( this ).prev().prev().children( 'img' ).attr( 'src', src );
@@ -53,10 +53,11 @@ jQuery( function( $ ) {
 	});
 
 	$( '.remove_image_button' ).click( function() {
-		var r = confirm( 'You are sure?' ),
+
+		var r = window.confirm( 'You are sure?' ),
 			src;
 
-		if ( true == r ) {
+		if ( true === r ) {
 			src = $( this ).prev().prev().children( 'img' ).attr( 'data-src' );
 
 			$( this ).prev().prev().children( 'img' ).attr( 'src', src );
