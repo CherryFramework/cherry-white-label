@@ -52,10 +52,11 @@ jQuery( function($) {
 	});
 
 	$( '.remove_image_button' ).click( function() {
-		var r = confirm( "You are sure?" );
+		var r = confirm( 'You are sure?' ),
+			src;
 
-		if ( r == true ) {
-			var src = $( this ).prev().prev().children( 'img' ).attr( 'data-src' );
+		if ( true == r ) {
+			src = $( this ).prev().prev().children( 'img' ).attr( 'data-src' );
 
 			$( this ).prev().prev().children( 'img' ).attr( 'src', src );
 			$( this ).next().val( '' );

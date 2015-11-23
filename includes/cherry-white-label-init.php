@@ -38,30 +38,43 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		private $_dev_website_text;
 
 		/**
+		 * Update settings.
+		 *
 		 * @var $_data
 		 */
 		private $_update_settings = false;
 
 		/**
+		 * Custom logo admin bar.
+		 *
 		 * @var $_custom_logo_admin_bar
 		 */
 		private $_custom_logo_admin_bar;
 
 		/**
+		 * Custom login logo.
+		 *
 		 * @var $_custom_login_logo
 		 */
 		private $_custom_login_logo;
 
 		/**
+		 * Custom login background.
+		 *
 		 * @var $_custom_login_background
 		 */
 		private $_custom_login_background;
 
 		/**
+		 * Custom login css.
+		 *
 		 * @var $_custom_login_css
 		 */
 		private $_custom_login_css;
 
+		/**
+		 * Class consructor.
+		 */
 		public function __construct() {
 			if ( is_admin() ) {
 
@@ -72,7 +85,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 				add_action( 'admin_menu', array( $this, 'register_menu_plugin') );
 
 				// Hide admin bar options.
-				add_action( 'wp_before_admin_bar_render', array( $this, 'hide_options_admin_bar') );
+				add_action( 'wp_before_admin_bar_render', array( $this, 'hide_options_admin_bar' ) );
 			}
 
 			$this->_custom_settings_admin_panel();
@@ -98,10 +111,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 				add_filter( 'lostpassword_url', array( $this, '_custom_lostpassword_url' ), 10, 2 );
 			}
 
-			if ( ! empty($_POST)
-				 && isset( $_POST['cherry-white-label-settings-value'] )
-				 && wp_verify_nonce( $_POST['cherry-white-label-settings-value'], 'cherry-white-label-settings' )
-				 && ! $error_message = $this->_validate_settings( $_POST) ) {
+			if ( ! empty($_POST) && isset( $_POST['cherry-white-label-settings-value'] ) && wp_verify_nonce( $_POST['cherry-white-label-settings-value'], 'cherry-white-label-settings' ) && ! $error_message = $this->_validate_settings( $_POST ) ) {
 				$this->_save_settings();
 			}
 
@@ -114,7 +124,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 				$user_info = wp_get_current_user();
 				$settings = $this->_get_settings();
 
-				if ( isset( $user_info->roles ) && ! empty( $user_info->roles) ) {
+				if ( isset( $user_info->roles ) && ! empty( $user_info->roles ) ) {
 					$role_user = $user_info->roles[0];
 
 					if ( isset( $settings['visible-welcome-group'] ) && ! empty( $settings['visible-welcome-group'] ) ) {
@@ -130,7 +140,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 
 			// Hide screen options.
 			if ( isset( $settings['visible-screen-options'] ) && 'on' == $settings['visible-screen-options'] ) {
-				add_filter( 'screen_options_show_screen', array( $this, 'remove_screen_options_tab') );
+				add_filter( 'screen_options_show_screen', array( $this, 'remove_screen_options_tab' ) );
 			}
 
 			// Hide help box.
@@ -145,12 +155,11 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 
 			// Developer link.
 			if ( isset( $settings['dev-website-name'] ) && ! empty( $settings['dev-website-name'] )
-				&& isset( $settings['dev-website-url'] ) && ! empty( $settings['dev-website-url'] ) )
-			{
+				&& isset( $settings['dev-website-url'] ) && ! empty( $settings['dev-website-url'] ) ) {
 				$this->_dev_website_text = $settings['dev-website-name'];
 				$this->_dev_website_url = $settings['dev-website-url'];
 
-				add_filter( 'admin_footer_text', array( $this, 'custom_footer_text') );
+				add_filter( 'admin_footer_text', array( $this, 'custom_footer_text' ) );
 			}
 
 			// Hide Wordpress logo in admin bar.
@@ -161,7 +170,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 			// Custom logo admin bar.
 			if ( isset( $settings['wp-logo-admin'] ) && ! empty( $settings['wp-logo-admin'] ) ) {
 				$this->_custom_logo_admin_bar = $settings['wp-logo-admin'];
-				add_action( 'add_admin_bar_menus', array( $this, 'custom_logo_admin_bar') );
+				add_action( 'add_admin_bar_menus', array( $this, 'custom_logo_admin_bar' ) );
 			}
 
 			// Custom logo in Login form.
@@ -327,9 +336,9 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		/**
 		 * Expands the rights of the role.
 		 *
-		 * @param $role
-		 * @param $cap
-		 * @param $method
+		 * @param string $role Default value.
+		 * @param string $cap Default value.
+		 * @param string $method Default value.
 		 */
 		private function _role_caps( $role, $cap, $method ) {
 			$info_role = get_role( $role );
@@ -366,17 +375,17 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		 * Message Notice "Error create automatically .htaccess".
 		 */
 		public function htaccess_notice() {
-			echo "
-				<div class='update-nag'>
-					<p>The <code>.htaccess</code> file was not created automatically. Please be sure that the access rights of the directory \"" . $this->_get_home_path() . "\" are set to <b>757</b>.</p>
+			echo '
+				<div class="update-nag">
+					<p>The <code>.htaccess</code> file was not created automatically. Please be sure that the access rights of the directory \"' . $this->_get_home_path() . '\" are set to <b>757</b>.</p>
 					<p> You may create <code>.htaccess</code> file manualy by yourself.</p>
-				</div>";
+				</div>';
 		}
 
 		/**
 		 * Replace lostpassword URL in Form authorization.
 		 *
-		 * @param string $url
+		 * @param string $url Current url.
 		 *
 		 * @return mixed
 		 */
@@ -395,7 +404,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		/**
 		 * Replace login URL in Form authorization.
 		 *
-		 * @param $url
+		 * @param string $url Current url.
 		 *
 		 * @return string
 		 */
@@ -445,7 +454,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 			if ( in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) ) && ( get_option( 'custom_wp_admin_slug' ) !== false && get_option( 'custom_wp_admin_slug' ) !== '') ) {
 
 				// Check if our plugin have written necesery line to .htaccess, sometimes WP doesn't write correctly so we don't want to disable login in that case.
-				$markerdata = explode( "\n", implode(' ', file( $this->_get_home_path() . '.htaccess' ) ) );
+				$markerdata = explode( '\n', implode( ' ', file( $this->_get_home_path() . '.htaccess' ) ) );
 				$found = false;
 				$url = $this->_get_url();
 
@@ -472,7 +481,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 			}
 
 			if ( isset( $url['rewrite_base'] ) && ! empty( $url['rewrite_base'] ) ) {
-				$request_uri = '/' . $url['rewrite_base'] . '/' . get_option('custom_wp_admin_slug');
+				$request_uri = '/' . $url['rewrite_base'] . '/' . get_option( 'custom_wp_admin_slug' );
 			} else {
 				$request_uri = '/' . get_option( 'custom_wp_admin_slug' );
 			}
@@ -480,15 +489,15 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 			if ( $request_uri == $_SERVER['REQUEST_URI'] || $request_uri . '/' == $_SERVER['REQUEST_URI'] ) {
 
 				if ( is_user_logged_in() ) {
-					wp_redirect( site_url('wp-admin') );
+					wp_redirect( site_url( 'wp-admin' ) );
 				}
 			} else {
 
-				if ( isset($_SERVER['REQUEST_METHOD'] ) && 'GET' == $_SERVER['REQUEST_METHOD'] ) {
+				if ( isset( $_SERVER['REQUEST_METHOD'] ) && 'GET' == $_SERVER['REQUEST_METHOD'] ) {
 					if ( 'action=lostpassword' == $url['query'] || 'action=postpass' == $url['query'] ) {
 
 						// Let user to this pages.
-					} elseif ( 'action=logout' == substr( $url['query'], 0, 13) ) {
+					} elseif ( 'action=logout' == substr( $url['query'], 0, 13 ) ) {
 						check_admin_referer( 'log-out' );
 						wp_logout();
 
@@ -537,11 +546,11 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		 */
 		private function _get_url() {
 			$url = array();
-			$url['scheme'] = isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http';
+			$url['scheme'] = isset( $_SERVER['HTTPS'] ) && 'off' !== $_SERVER['HTTPS'] ? 'https' : 'http';
 			$url['domain'] = $_SERVER['HTTP_HOST'];
 			$url['port'] = isset( $_SERVER['SERVER_PORT'] ) && $_SERVER['SERVER_PORT'] ? $_SERVER['SERVER_PORT'] : '' ;
-			$url['rewrite_base'] = ( $host = explode( $url['scheme'] . '://' . $_SERVER['HTTP_HOST'], get_bloginfo('url') ) ) ? preg_replace("/^\//", '', implode( '', $host ) ) : '';
-			$url['path'] = $url['rewrite_base'] ? implode('', explode('/' . $url['rewrite_base'], $_SERVER["SCRIPT_NAME"])) : $_SERVER["SCRIPT_NAME"];
+			$url['rewrite_base'] = ( $host = explode( $url['scheme'] . '://' . $_SERVER['HTTP_HOST'], get_bloginfo( 'url' ) ) ) ? preg_replace( '/^\//', '', implode( '', $host ) ) : '';
+			$url['path'] = $url['rewrite_base'] ? implode( '', explode('/' . $url['rewrite_base'], $_SERVER["SCRIPT_NAME"] ) ) : $_SERVER["SCRIPT_NAME"];
 			$url['query'] = $_SERVER['QUERY_STRING'];
 			return $url;
 		}
@@ -585,9 +594,9 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		}
 
 		/**
-		 * Overwrites the data file .htaccess
+		 * Overwrites the data file .htaccess.
 		 *
-		 * @param $rules
+		 * @param array $rules
 		 */
 		private function _overwrites_htaccess( $rules ) {
 			$subdomain = '';
@@ -596,7 +605,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 			$home_path = ABSPATH;
 			$settings = $this->_get_settings();
 
-			if ( isset( $_SERVER['REQUEST_URI'] ) && ! empty($_SERVER['REQUEST_URI'] ) ) {
+			if ( isset( $_SERVER['REQUEST_URI'] ) && ! empty( $_SERVER['REQUEST_URI'] ) ) {
 				if ( isset( $_GET['page'] ) && ! empty( $_GET['page'] ) ) {
 					$subdomain = str_replace( '/wp-admin/admin.php?page=' . $_GET['page'], '', $_SERVER['REQUEST_URI'] );
 				} else {
@@ -604,7 +613,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 				}
 			}
 
-			update_option('custom_subdomain_admin_slug', $subdomain);
+			update_option( 'custom_subdomain_admin_slug', $subdomain );
 
 			$old_ht_login = ! empty( $settings['admin-panel-slug'] ) ? $settings['admin-panel-slug'] : false ;
 			$old_ht_password_slug = ! empty( $settings['forgot-password-slug'] ) ? $settings['forgot-password-slug'] : false ;
@@ -667,8 +676,8 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 
 						$new_data .= "RewriteCond %{REQUEST_FILENAME} !-f\n";
 						$new_data .= "RewriteCond %{REQUEST_FILENAME} !-d\n";
-						$new_data .= "RewriteRule . " . $subdomain . "/index.php [L]\n";
-						$new_data .= "</IfModule>\n";
+						$new_data .= 'RewriteRule . ' . $subdomain . '/index.php [L]\n';
+						$new_data .= '</IfModule>\n';
 						$not_exist_rules = true;
 					}
 				} else {
@@ -686,11 +695,11 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 						$new_data .= $ht_forgot_password;
 					}
 
-					$new_data .= "RewriteCond %{REQUEST_FILENAME} !-f\n";
-					$new_data .= "RewriteCond %{REQUEST_FILENAME} !-d\n";
-					$new_data .= "RewriteRule . " . $subdomain . "/index.php [L]\n";
-					$new_data .= "</IfModule>\n";
-					$new_data .= "# END WordPress\n";
+					$new_data .= 'RewriteCond %{REQUEST_FILENAME} !-f\n';
+					$new_data .= 'RewriteCond %{REQUEST_FILENAME} !-d\n';
+					$new_data .= 'RewriteRule . ' . $subdomain . '/index.php [L]\n';
+					$new_data .= '</IfModule>\n';
+					$new_data .= '# END WordPress\n';
 				}
 
 				if ( $not_exist_rules ) {
@@ -700,7 +709,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 					file_put_contents( $fn_htaccess, $new_data );
 				}
 			} else {
-				return array( 'error' => array( 'message' => "The <code>.htaccess</code> file was not created automatically. Please be sure that the access rights of the directory \"" . $this->_get_home_path() . "\" are set to <b>757</b>.")  );
+				return array( 'error' => array( 'message' => 'The <code>.htaccess</code> file was not created automatically. Please be sure that the access rights of the directory \"' . $this->_get_home_path() . '\" are set to <b>757</b>.' ) );
 			}
 		}
 
@@ -749,13 +758,13 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		/**
 		 * Custom admin bar Logo Bottom.
 		 *
-		 * @param $wp_admin_bar
+		 * @param object $wp_admin_bar
 		 */
 		public function custom_logo_admin_bar_bottom( $wp_admin_bar ) {
 			$wp_admin_bar->add_menu( array(
 				'id'    => 'wp-logo',
 				'title' => '<img style="max-width:16px; height:16px; padding-top: 8px; padding-left: 5px; padding-right: 5px; vertical-align: top;" src="'. $this->_custom_logo_admin_bar .'" alt="" >',
-				'href'  => home_url(''),
+				'href'  => home_url( '' ),
 			) );
 		}
 
@@ -816,7 +825,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 				'White Label',
 				'manage_options',
 				'cherry-white-label-settings',
-				array($this, '_plugin_settings_page'),
+				array( $this, '_plugin_settings_page' ),
 				'',
 				81
 			);
@@ -857,17 +866,22 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 
 				if ( isset( $roles ) && ! empty( $roles ) ) {
 					foreach ( $roles as $role => $role_info ) {
-						$roles[$role] = array(
+						$roles[ $role ] = array(
 							'name' => $role_info['name'],
 						);
 
 						if ( isset( $data['visible-welcome-group'] ) && ! empty( $data['visible-welcome-group'] ) ) {
+
 							foreach ( $data['visible-welcome-group'] as $visible_role ) {
+
 								if ( $role == $visible_role ) {
-									$roles[$role] = array_merge( $roles[$role], array( 'selected' => true ) );
+									$roles[ $role ] = array_merge( $roles[ $role ], array( 'selected' => true ) );
 								}
+
 							}
+
 						}
+
 					}
 				}
 
@@ -887,7 +901,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		/**
 		 * Validate form settings.
 		 *
-		 * @param $data
+		 * @param array $data
 		 *
 		 * @return array|bool
 		 */
@@ -895,7 +909,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 			$errors = array();
 
 			if ( ! empty( $errors ) ) {
-				$errors = array_merge( array( 'error_message' => __( 'Error validate data') ),
+				$errors = array_merge( array( 'error_message' => __( 'Error validate data' ) ),
 					$errors
 				);
 
@@ -908,7 +922,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		/**
 		 * Get custom login url.
 		 *
-		 * @param array $attr
+		 * @param array $attr Attr setting array.
 		 *
 		 * @return string
 		 */
@@ -927,7 +941,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 
 			if ( is_array( $attr ) && ! empty( $attr ) ) {
 				$key_attr = key( $attr );
-				$val_attr = $attr[$key_attr];
+				$val_attr = $attr[ $key_attr ];
 				$attr_url = '?' . $key_attr . '=' . $val_attr;
 			}
 
@@ -941,13 +955,14 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 		}
 
 		/**
-		 * Enqueue admin assets
+		 * Enqueue admin assets.
 		 *
 		 * @since  1.0.0
 		 *
-		 * @param  string  $hook  admin page hook
+		 * @param  string $hook admin page hook.
 		 */
 		public function admin_assets( $hook ) {
+
 			if ( false !== strpos( $hook, 'cherry-white-label' ) ) {
 
 				// Styles.
@@ -979,6 +994,7 @@ if ( ! class_exists( 'CherryWhiteLabelInit' ) ) {
 
 				wp_localize_script( 'cherry-white-label-script', 'optionsPageSettings', $optionsPageSettings );
 			}
+
 		}
 
 	}

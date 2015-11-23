@@ -36,7 +36,10 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 	final class CherryWhiteLabel {
 
 		/**
+		 * Plugin version.
+		 *
 		 * @var   string
+		 *
 		 * @since 1.0.0
 		 */
 		public $version = '1.0.2';
@@ -45,6 +48,7 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
+
 			// Set the constants needed by the plugin.
 			$this->constants();
 
@@ -90,7 +94,7 @@ if ( ! class_exists( 'CherryWhiteLabel' ) ) {
 		 */
 		private function _clear_old_options( $options ) {
 
-			if ( isset( $options['admin-panel-slug']) ) {
+			if ( isset( $options['admin-panel-slug'] ) ) {
 				unset( $options['admin-panel-slug'] );
 			}
 

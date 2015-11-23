@@ -22,7 +22,7 @@
 	</div>
 <?php endif; ?>
 
-<?php if ( isset($success_message) ): ?>
+<?php if ( isset( $success_message ) ) : ?>
 	<div id="message" class="updated notice notice-success is-dismissible below-h2">
 		<p><?php _e( $success_message ); ?></p>
 		<button type="button" class="notice-dismiss">
@@ -77,14 +77,14 @@
 				<td>
 					<div class="form-element">
 						<div class="form-image">
-							<?php if ( isset( $data['welcome-panel-logo'] ) && ! empty( $data['welcome-panel-logo'] ) ){ ?>
+							<?php if ( isset( $data['welcome-panel-logo'] ) && ! empty( $data['welcome-panel-logo'] ) ) { ?>
 								<img data-src="<?php echo $no_image; ?>" src="<?php echo $data['welcome-panel-logo']; ?>" height="<?php echo $height_image; ?>px" />
 							<?php } else { ?>
 								<img data-src="<?php echo $no_image; ?>" src="<?php echo $image_src; ?>" height="<?php echo $height_image; ?>px" />
 							<?php } ?>
 						</div>
 						<button type="button" class="upload_image_button button button-primary" data-browse="welcome-panel-logo"><?php _e( 'Browse' ); ?></button>
-						<?php if ( isset( $data['welcome-panel-logo'] ) && ! empty( $data['welcome-panel-logo'] ) ){ ?>
+						<?php if ( isset( $data['welcome-panel-logo'] ) && ! empty( $data['welcome-panel-logo'] ) ) { ?>
 							<button type="button" class="remove_image_button button button-cancel"><?php _e( 'Remove' ); ?></button>
 						<?php } ?>
 						<input type="hidden" name="welcome-panel-logo" id="welcome-panel-logo" value="<?php echo isset( $data['welcome-panel-logo'] ) && ! empty( $data['welcome-panel-logo'] ) ? $data['welcome-panel-logo'] : '' ; ?>" />
@@ -112,9 +112,9 @@
 			<tr id="visible-to" <?php echo ( ! isset( $data['visible-welcome-panel'] ) ) ? 'style="display:none;"' : '' ; ?>>
 				<td><lable><?php _e( 'Visible To:' ); ?></lable></td>
 				<td>
-					<?php if ( isset( $roles ) && ! empty( $roles ) ){ ?>
+					<?php if ( isset( $roles ) && ! empty( $roles ) ) { ?>
 						<select multiple size="5" name="visible-welcome-group[]">
-							<?php foreach( $roles as $role=>$role_info ) { ?>
+							<?php foreach ( $roles as $role=>$role_info ) { ?>
 								<option value="<?php echo $role; ?>" <?php echo ( isset( $role_info['selected'] ) && false !== $role_info['selected'] ) ? 'selected="selected"' : '' ; ?>><?php _e( $role_info['name'] ); ?></option>
 							<?php } ?>
 						</select>
@@ -178,7 +178,7 @@
 				<td>
 					<div class="form-element">
 						<div class="form-image">
-							<?php if ( isset( $data['background-wp-login-page'] ) && ! empty( $data['background-wp-login-page'] ) ){ ?>
+							<?php if ( isset( $data['background-wp-login-page'] ) && ! empty( $data['background-wp-login-page'] ) ) { ?>
 								<img data-src="<?php echo $no_image; ?>" src="<?php echo $data['background-wp-login-page']; ?>" height="<?php echo $height_image; ?>px" />
 							<?php } else { ?>
 								<img data-src="<?php echo $no_image; ?>" src="<?php echo $image_src; ?>" height="<?php echo $height_image; ?>px" />
