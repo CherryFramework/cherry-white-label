@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cherry-white-label\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-05 18:58+0200\n"
-"PO-Revision-Date: 2015-11-05 18:58+0200\n"
+"POT-Creation-Date: 2015-12-11 15:58+0200\n"
+"PO-Revision-Date: 2015-12-11 15:58+0200\n"
 "Last-Translator: J.L.Dokter <jldokter@gmail.com>\n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
 "Language: ru_RU\n"
@@ -20,205 +20,205 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: includes/cherry-white-label-init.php:270
+#: includes/cherry-white-label-init.php:249
 msgid "Get Started"
-msgstr ""
+msgstr "Начать"
+
+#: includes/cherry-white-label-init.php:250
+msgid "Customize Your Site"
+msgstr "Настроить ваш сайт"
+
+#: includes/cherry-white-label-init.php:251
+msgid "or, <a href=\""
+msgstr "или, <a href=\""
+
+#: includes/cherry-white-label-init.php:256
+msgid "Next Steps"
+msgstr "Следующие шаги"
+
+#: includes/cherry-white-label-init.php:260
+#: includes/cherry-white-label-init.php:263
+msgid "Edit your front page"
+msgstr "Редактировать Домашнюю страницу"
+
+#: includes/cherry-white-label-init.php:261
+#: includes/cherry-white-label-init.php:264
+msgid "Add additional pages"
+msgstr "Добавить дополнительные страницы"
+
+#: includes/cherry-white-label-init.php:265
+msgid "Add a blog post"
+msgstr "Добавить запись блога"
+
+#: includes/cherry-white-label-init.php:267
+msgid "Write your first blog post"
+msgstr "Создайте вашу первую запись блога"
+
+#: includes/cherry-white-label-init.php:268
+msgid "Add an About page"
+msgstr "Добавьте страницу \"О компании\""
 
 #: includes/cherry-white-label-init.php:271
-msgid "Customize Your Site"
-msgstr ""
-
-#: includes/cherry-white-label-init.php:272
-msgid "or, <a href=\""
-msgstr ""
+msgid "View your site"
+msgstr "Просмотрите ваш сайт"
 
 #: includes/cherry-white-label-init.php:277
-msgid "Next Steps"
-msgstr ""
-
-#: includes/cherry-white-label-init.php:282
-#: includes/cherry-white-label-init.php:287
-msgid "Edit your front page"
-msgstr ""
-
-#: includes/cherry-white-label-init.php:283
-#: includes/cherry-white-label-init.php:288
-msgid "Add additional pages"
-msgstr ""
-
-#: includes/cherry-white-label-init.php:289
-msgid "Add a blog post"
-msgstr ""
-
-#: includes/cherry-white-label-init.php:293
-msgid "Write your first blog post"
-msgstr ""
-
-#: includes/cherry-white-label-init.php:294
-msgid "Add an About page"
-msgstr ""
-
-#: includes/cherry-white-label-init.php:297
-msgid "View your site"
-msgstr ""
-
-#: includes/cherry-white-label-init.php:303
 msgid "More Actions"
-msgstr ""
+msgstr "Больше действий"
 
-#: includes/cherry-white-label-init.php:305
+#: includes/cherry-white-label-init.php:279
 msgid "Manage <a href=\""
-msgstr ""
+msgstr "Управлять <a href=\""
 
-#: includes/cherry-white-label-init.php:306
+#: includes/cherry-white-label-init.php:280
 msgid "Turn comments on or off"
-msgstr ""
+msgstr "Включить или отключить комментарии."
 
-#: includes/cherry-white-label-init.php:307
+#: includes/cherry-white-label-init.php:281
 msgid "http://codex.wordpress.org/First_Steps_With_WordPress"
-msgstr ""
+msgstr "http://codex.wordpress.org/First_Steps_With_WordPress"
 
-#: includes/cherry-white-label-init.php:307
+#: includes/cherry-white-label-init.php:281
 msgid "Learn more about getting started"
-msgstr ""
+msgstr "Узнайте больше о том, как начать работу с вашим сайтом "
 
-#: includes/cherry-white-label-init.php:973
+#: includes/cherry-white-label-init.php:854
 msgid "Saved successfully"
-msgstr ""
+msgstr "Успешно сохранён"
 
-#: includes/cherry-white-label-init.php:1033
+#: includes/cherry-white-label-init.php:909
 msgid "Error validate data"
-msgstr ""
+msgstr "Ошибка проверки данных"
 
-#: templates/admin/page-settings.php:1
+#: templates/admin/page-settings.php:13
 msgid "White Label"
-msgstr ""
+msgstr "White Label"
 
-#: templates/admin/page-settings.php:8 templates/admin/page-settings.php:17
+#: templates/admin/page-settings.php:20 templates/admin/page-settings.php:29
 msgid "Dismiss this notice."
-msgstr ""
+msgstr "Закрыть это уведомление."
 
-#: templates/admin/page-settings.php:24
+#: templates/admin/page-settings.php:36
 msgid "Tab brand"
-msgstr ""
+msgstr "Брэнд вкладки"
 
-#: templates/admin/page-settings.php:29
+#: templates/admin/page-settings.php:41
 msgid "Admin bar"
-msgstr ""
+msgstr "Админ панель:"
 
-#: templates/admin/page-settings.php:33
+#: templates/admin/page-settings.php:45
 msgid "Hide Admin Bar logo:"
-msgstr ""
+msgstr "Спрятать логотип админ панели:"
 
-#: templates/admin/page-settings.php:39
+#: templates/admin/page-settings.php:51
 msgid "Upload your Logo 16x16px:"
-msgstr ""
+msgstr "Загрузить логотип 16x16px:"
 
-#: templates/admin/page-settings.php:49 templates/admin/page-settings.php:74
-#: templates/admin/page-settings.php:156 templates/admin/page-settings.php:175
+#: templates/admin/page-settings.php:61 templates/admin/page-settings.php:86
+#: templates/admin/page-settings.php:168 templates/admin/page-settings.php:187
 msgid "Browse"
-msgstr ""
+msgstr "Обзор..."
 
-#: templates/admin/page-settings.php:51 templates/admin/page-settings.php:76
-#: templates/admin/page-settings.php:158 templates/admin/page-settings.php:177
+#: templates/admin/page-settings.php:63 templates/admin/page-settings.php:88
+#: templates/admin/page-settings.php:170 templates/admin/page-settings.php:189
 msgid "Remove"
-msgstr ""
+msgstr "Удалить"
 
-#: templates/admin/page-settings.php:60
+#: templates/admin/page-settings.php:72
 msgid "Welcome Panel settings"
-msgstr ""
+msgstr "Настройки Панели приветствия:"
 
-#: templates/admin/page-settings.php:64
+#: templates/admin/page-settings.php:76
 msgid "Add Welcome Panel logo:"
-msgstr ""
-
-#: templates/admin/page-settings.php:83
-msgid "Welcome Panel heading:"
-msgstr ""
-
-#: templates/admin/page-settings.php:89
-msgid "Welcome Panel text:"
-msgstr ""
+msgstr "Добавить логотип Панели приветствия:"
 
 #: templates/admin/page-settings.php:95
-msgid "Add your own Welcome Panel?:"
-msgstr ""
+msgid "Welcome Panel heading:"
+msgstr "Заголовок Панели приветствия:"
 
 #: templates/admin/page-settings.php:101
+msgid "Welcome Panel text:"
+msgstr "Текст Панели приветствия:"
+
+#: templates/admin/page-settings.php:107
+msgid "Add your own Welcome Panel?:"
+msgstr "Добавить пользовательскую Панель приветствия?:"
+
+#: templates/admin/page-settings.php:113
 msgid "Visible To:"
-msgstr ""
+msgstr "Отображается для:"
 
-#: templates/admin/page-settings.php:115
+#: templates/admin/page-settings.php:127
 msgid "Footer"
-msgstr ""
-
-#: templates/admin/page-settings.php:119
-msgid "Hide Wordpress version:"
-msgstr ""
-
-#: templates/admin/page-settings.php:125
-msgid "Developer Website Name:"
-msgstr ""
+msgstr "Футер"
 
 #: templates/admin/page-settings.php:131
+msgid "Hide Wordpress version:"
+msgstr "Спрятать версию Wordpress:"
+
+#: templates/admin/page-settings.php:137
+msgid "Developer Website Name:"
+msgstr "Название сайта разработчика:"
+
+#: templates/admin/page-settings.php:143
 msgid "Developer Website URL:"
-msgstr ""
+msgstr "Ссылка на сайт разработчика:"
 
-#: templates/admin/page-settings.php:135
+#: templates/admin/page-settings.php:147
 msgid "Example: http://your-website.com"
-msgstr ""
+msgstr "Например: http://your-website.com"
 
-#: templates/admin/page-settings.php:142
+#: templates/admin/page-settings.php:154
 msgid "Login"
-msgstr ""
+msgstr "Вход на сайт"
 
-#: templates/admin/page-settings.php:146
+#: templates/admin/page-settings.php:158
 msgid "Custom login logo:"
-msgstr ""
+msgstr "Пользовательский логотип страницы входа на сайт:"
 
-#: templates/admin/page-settings.php:165
+#: templates/admin/page-settings.php:177
 msgid "Login page Background:"
-msgstr ""
+msgstr "Фон страницы входа на сайт:"
 
-#: templates/admin/page-settings.php:184
+#: templates/admin/page-settings.php:196
 msgid "Custom login css:"
-msgstr ""
+msgstr "Пользовательские правила css окна входа на сайт:"
 
-#: templates/admin/page-settings.php:194
+#: templates/admin/page-settings.php:206
 msgid "Dashboard settings"
-msgstr ""
-
-#: templates/admin/page-settings.php:200
-msgid "Hide Help Box:"
-msgstr ""
-
-#: templates/admin/page-settings.php:204
-msgid "This setting will hide \"help box\" bar on dashboard section"
-msgstr ""
-
-#: templates/admin/page-settings.php:209
-msgid "Hide Screen Options:"
-msgstr ""
+msgstr "Настройки админ панели"
 
 #: templates/admin/page-settings.php:212
+msgid "Hide Help Box:"
+msgstr "Спрятать окно справки:"
+
+#: templates/admin/page-settings.php:216
+msgid "This setting will hide \"help box\" bar on dashboard section"
+msgstr "Эта настройка скроет панель \\ \"help box\" в админ панели"
+
+#: templates/admin/page-settings.php:221
+msgid "Hide Screen Options:"
+msgstr "Спрятать Настройки отображения:"
+
+#: templates/admin/page-settings.php:224
 msgid "This setting will hide \"screen option\" bar on dashboard section"
-msgstr ""
+msgstr "Эта настройка скроет панель \\ \"screen option\" в админ панели"
 
-#: templates/admin/page-settings.php:219
+#: templates/admin/page-settings.php:231
 msgid "Authorization settings"
-msgstr ""
+msgstr "Настройки авторизации:"
 
-#: templates/admin/page-settings.php:226
+#: templates/admin/page-settings.php:238
 msgid "Change Admin Panel Slug:"
-msgstr ""
-
-#: templates/admin/page-settings.php:232
-msgid "Change Forgot Password Slug:"
-msgstr ""
+msgstr "Изменить слаг админ панели:"
 
 #: templates/admin/page-settings.php:244
+msgid "Change Forgot Password Slug:"
+msgstr "Изменить слаг страницы восстановления пароля:"
+
+#: templates/admin/page-settings.php:256
 msgid "Save Change"
-msgstr ""
+msgstr "сохранить изменения"
 
 #~ msgid "Title"
 #~ msgstr "Заголовок"
